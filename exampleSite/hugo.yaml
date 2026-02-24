@@ -40,6 +40,15 @@ params:
   description: "ML Engineer specializing in NLP, semantic retrieval, and Transformer optimization. Incoming MSc at TUM."
   favicon: "/fav.png"
 
+  # ─── SEO / Structured Data ─────────────────────────────────────────────────
+  seo:
+    fullName: "Rauf Ibishov"
+    jobTitle: "Machine Learning Engineer"
+    sameAs:
+      - "https://github.com/ibishovrauf"
+      - "https://linkedin.com/in/rauf-ibishov/"
+      - "https://leetcode.com/u/raufibishov/"
+
   useBootstrapCDN: false
   mathjax: false
   animate: true

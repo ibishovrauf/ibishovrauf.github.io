@@ -1,4 +1,21 @@
 {{/*
-    You can add further theme extensions or customizations here if they should
-    appear in <head>.
+    SEO: JSON-LD Person schema — emitted only on the home page.
+    Google uses this to associate the site with a named individual,
+    which improves name-based search results and enables knowledge panels.
 */}}
+{{ if .IsHome }}
+{{ with .Site.Params.seo }}
+{{ $schema := dict
+  "@context" "https://schema.org"
+  "@type"    "Person"
+  "name"        .fullName
+  "url"         $.Site.BaseURL
+  "jobTitle"    .jobTitle
+  "description" $.Site.Params.description
+  "sameAs"      .sameAs
+}}
+<script type="application/ld+json">
+{{ $schema | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{ end }}
+{{ end }}
