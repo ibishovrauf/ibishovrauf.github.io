@@ -4,7 +4,11 @@
 # Repo layout (monorepo):
 #   /                  ← Hugo theme source (hugo-profile)
 #   exampleSite/       ← Your portfolio site
-#   exampleSite/themes/hugo-profile → resolved at build time via --themesDir ../..
+#   exampleSite/themes/hugo-profile → symlinked to repo root at build time
+#
+# Why the symlink: --themesDir ../.. worked locally because the folder was named
+# "hugo-profile". On the runner the checkout folder is the repo name, so we
+# create the symlink explicitly instead.
 #
 # Required repo settings (one-time, done in GitHub UI):
 #   Settings → Pages → Source → "GitHub Actions"
@@ -57,11 +61,13 @@ jobs:
         # For custom domains this equals your CNAME value.
         # For project pages (non-root) it appends the repo name — handled automatically.
 
+      - name: Link theme (monorepo symlink)
+        run: ln -sf ${{ github.workspace }} exampleSite/themes/hugo-profile
+
       - name: Build site
         run: |
           cd exampleSite
           hugo \
-            --themesDir ../.. \
             --minify \
             --gc \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
