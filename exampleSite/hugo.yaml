@@ -166,7 +166,7 @@ params:
     enable: true
     items:
       - job: "Machine Learning Engineer"
-        company: "NAIC (National AI Center)"
+        company: "NAIC"
         companyUrl: "https://ailab.az"
         date: "Feb 2025 – Present"
         featuredLink:
@@ -181,7 +181,7 @@ params:
           - Ran systematic latency vs. accuracy benchmarks across retrieval + re-ranking pipeline stages.
 
       - job: "Junior Machine Learning Engineer"
-        company: "NAIC (National AI Center)"
+        company: "National Artificial Intelligence Center (NAIC)"
         companyUrl: "https://ailab.az"
         date: "Jun 2023 – Feb 2025"
         content: |-
