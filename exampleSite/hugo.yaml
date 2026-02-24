@@ -166,13 +166,9 @@ params:
     enable: true
     items:
       - job: "Machine Learning Engineer"
-        company: "NAIC"
-        companyUrl: "https://ailab.az"
+        company: "National Artificial Intelligence Center"
+        companyUrl: "https://naic.az"
         date: "Feb 2025 – Present"
-        featuredLink:
-          enable: true
-          name: "GitHub"
-          url: "https://github.com/ibishovrauf"
         content: |-
           - Built a query processing pipeline using quantized DistilBERT for NER and query classification; deployed to AWS.
           - Converted SBERT and DistilBERT to ONNX; applied dynamic quantization, reducing model size by **39%** with negligible accuracy loss.
@@ -181,7 +177,7 @@ params:
           - Ran systematic latency vs. accuracy benchmarks across retrieval + re-ranking pipeline stages.
 
       - job: "Junior Machine Learning Engineer"
-        company: "National Artificial Intelligence Center (NAIC)"
+        company: "National Artificial Intelligence Center"
         companyUrl: "https://ailab.az"
         date: "Jun 2023 – Feb 2025"
         content: |-
