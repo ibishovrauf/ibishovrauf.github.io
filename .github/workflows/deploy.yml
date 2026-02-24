@@ -62,7 +62,9 @@ jobs:
         # For project pages (non-root) it appends the repo name — handled automatically.
 
       - name: Link theme (monorepo symlink)
-        run: ln -sf ${{ github.workspace }} exampleSite/themes/hugo-profile
+        run: |
+          mkdir -p exampleSite/themes
+          ln -sf ${{ github.workspace }} exampleSite/themes/hugo-profile
 
       - name: Build site
         run: |
