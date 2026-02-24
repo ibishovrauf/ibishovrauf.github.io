@@ -44,6 +44,7 @@ params:
   seo:
     fullName: "Rauf Ibishov"
     jobTitle: "Machine Learning Engineer"
+    ogImage: "images/me.png"   # shown when sharing the URL on WhatsApp, LinkedIn, etc.
     sameAs:
       - "https://github.com/ibishovrauf"
       - "https://linkedin.com/in/rauf-ibishov/"
