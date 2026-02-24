@@ -38,7 +38,7 @@ Menus:
 params:
   title: "Rauf Ibishov — ML Engineer"
   description: "ML Engineer specializing in NLP, semantic retrieval, and Transformer optimization. Incoming MSc at TUM."
-  favicon: "/fav.png"
+  favicon: "/logo.svg"
 
   # ─── SEO / Structured Data ─────────────────────────────────────────────────
   seo:
