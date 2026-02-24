@@ -233,7 +233,7 @@ params:
           running under a 200ms end-to-end latency budget. Cross-encoder + LRT re-ranking, ONNX-quantized models
           (39% size reduction), continuous learning from click-through and dwell-time signals, and 85% accuracy
           measured via MRR@10 and NDCG@5.
-        image: /images/projects/profile.png
+        image: /images/projects/e-qanun-ai.svg
         featured:
           name: Live Platform
           link: https://e-qanun.ai
