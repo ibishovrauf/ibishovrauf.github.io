@@ -1,6 +1,6 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://ibishovrauf.github.io"
 languageCode: "en-us"
-title: "Hugo Profile"
+title: "Rauf Ibishov"
 theme: hugo-profile
 
 outputs:
@@ -14,14 +14,13 @@ outputs:
 
 enableRobotsTXT: true
 
-#services:
-  #googleAnalytics:
-    #id: G-MEASUREMENT_ID
-  #disqus:
-    #shortname: your-disqus-shortname
+# Uncomment to enable analytics
+# services:
+#   googleAnalytics:
+#     id: G-MEASUREMENT_ID
 
 pagination:
-  pagerSize: 3
+  pagerSize: 5
 
 markup:
   goldmark:
@@ -32,66 +31,30 @@ Menus:
   main:
     - identifier: blog
       name: Blog
-      title: Blog posts
+      title: Technical writing
       url: /blogs
       weight: 1
-    - identifier: gallery
-      name: Gallery
-      title: Blog posts
-      url: /gallery
-      weight: 2
-    #Dropdown menu
-    # - identifier: dropdown
-    #   title: Example dropdown menu
-    #   name: Dropdown
-    #   weight: 3
-    # - identifier: dropdown1
-    #   title: example dropdown 1
-    #   name: example 1
-    #   url: /#
-    #   parent: dropdown
-    #   weight: 1
-    # - identifier: dropdown2
-    #   title: example dropdown 2
-    #   name: example 2
-    #   url: /#
-    #   parent: dropdown
-    #   weight: 2
 
 params:
-  title: "Hugo Profile"
-  description: Text about my cool site
-  # staticPath: ""  # The path to serve the static files from
+  title: "Rauf Ibishov — ML Engineer"
+  description: "ML Engineer specializing in NLP, semantic retrieval, and Transformer optimization. Incoming MSc at TUM."
   favicon: "/fav.png"
 
-  # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
-  # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
-  # Note the lack of "" in true, it should be of boolean type.
   useBootstrapCDN: false
-
-  # If you want to load dynamically responsive images from Cloudinary
-  # This requires your images to be uploaded + hosted on Cloudinary
-  # Uncomment and change YOUR_CLOUD_NAME to the Cloud Name in your Cloudinary console
-  # cloudinary_cloud_name: "YOUR_CLOUD_NAME"
-
-  # Whether to add mathjax support on all pages. Alternatively, you can opt-in per page by adding `mathjax: true` in the frontmatter.
   mathjax: false
-
-  # Whether the fade animations on the home page will be enabled
   animate: true
 
   theme:
     # disableThemeToggle: true
-    # defaultTheme: "light" # dark
+    # defaultTheme: "light" # or "dark"
 
   font:
-    fontSize: 1rem # default: 1rem
-    fontWeight: 400 # default: 400
-    lineHeight: 1.5 # default: 1.5
-    textAlign: left # default: left
+    fontSize: 1rem
+    fontWeight: 400
+    lineHeight: 1.6
+    textAlign: left
 
-  # color preference
-  # When using hex codes for colors, quotations must be used along with the # sign
+  # Uncomment and adjust to customize your color palette
   # color:
   #   textColor: "#343a40"
   #   secondaryTextColor: "#6c757d"
@@ -100,7 +63,6 @@ params:
   #   secondaryBackgroundColor: "#64ffda1a"
   #   primaryColor: "#007bff"
   #   secondaryColor: "#f8f9fa"
-
   #   darkmode:
   #     textColor: "#e4e6eb"
   #     secondaryTextColor: "#b0b3b8"
@@ -110,286 +72,226 @@ params:
   #     primaryColor: "#ffffff"
   #     secondaryColor: "#212529"
 
-  # If you want to customize the menu, you can change it here
   navbar:
-    align: ms-auto # Left: ms-auto | center: mx-auto | right: me-auto | Default: ms-auto
-    # brandLogo: "/logo.png" # Logo for the brand | default is the favicon variable
-    # showBrandLogo: false # Show brand logo in nav bar | default is true
-    brandName: "Hugo Profile" # Brand name for the brand | default is the title variable
+    align: ms-auto
+    brandName: "Rauf Ibishov"
     disableSearch: false
-    # searchPlaceholder: "Search"
     stickyNavBar:
-      enable : true
-      showOnScrollUp : true
+      enable: true
+      showOnScrollUp: true
     enableSeparator: false
     menus:
       disableAbout: false
       disableExperience: false
       disableEducation: false
       disableProjects: false
-      disableAchievements: false
+      disableAchievements: true  # Re-enable when you have concrete items
       disableContact: false
 
-  # Hero
+  # ─── Hero ──────────────────────────────────────────────────────────────────
   hero:
     enable: true
-    intro: "Hi, my name is"
-    title: "Isabella."
-    subtitle: "I build things for the web"
-    content: "A passionate web app developer. I tend to make use of modern web technologies to build websites that look great, feel fantastic, and function correctly."
-    image: /images/hero.svg
+    intro: "Hi, I'm"
+    title: "Rauf Ibishov."
+    subtitle: "Retrieval, re-ranking, and quantization — NLP systems built for production."
+    content: "Three years shipping search pipelines at scale; incoming MSc at TUM."
+    image: /images/me.png
     bottomImage:
       enable: true
-    # roundImage: true # Make hero image circular | default false
+    # roundImage: true
     button:
       enable: true
       name: "Resume"
-      url: "#"
+      url: "/resume.pdf"        # Replace with a link to your PDF resume
       download: true
       newPage: false
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
-          url: https://example.com
-        - icon: fab fa-x-twitter
-          url: https://example.com
+          url: https://github.com/ibishovrauf
+        - icon: fab fa-linkedin
+          url: https://linkedin.com/in/rauf-ibishov/
       customIcons:
-        - icon: /fav.png
-          url: "https://example.com"
+        - icon: /leetcode_white.svg
+          url: "https://leetcode.com/u/raufibishov/"
+          name: "leetcode-dark"
+        - icon: /leetcode_blue.svg
+          url: "https://leetcode.com/u/raufibishov/"
+          name: "leetcode-light"
 
-  # About
+  # ─── About ─────────────────────────────────────────────────────────────────
   about:
     enable: true
     title: "About Me"
     image: "/images/me.png"
     content: |-
-      I am a software developer with a passion for web development. I have a background in computer science and mathematics, and I have a strong interest in the intersection of technology and art. I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA.
+      I'm an ML Engineer with three years of production NLP experience, joining TUM's MSc in Information Engineering in 2025.
 
-      I am currently working on a project that will be used to help people find the best way to get around the city.
+      My work centers on two problems: making search relevant and making models fast. At NAIC (National AI Center) I built a hybrid retrieval pipeline — BM25 for exact-match recall and SBERT/DPR for semantic coverage — over a 500k-document domain corpus. Evaluated against MRR@10, NDCG@5, and precision-recall curves; user testing put accuracy at 85%.
+
+      On the efficiency side: I exported DistilBERT and SBERT to ONNX, combined dynamic quantization with mixed-precision training, and reduced model size by **39%** with under 1% accuracy loss. The same pipeline handles query-time NER and query classification.
+
+      I track numbers. If I can't measure it, I don't claim it improved.
+
+      **What I build:**
+
+      - Build hybrid retrieval pipelines combining BM25 with SBERT/DPR dense vectors — evaluated against MRR@10 and NDCG@5 across 500k+ document corpora.
+      - Design and benchmark re-ranking stages using cross-encoder LLMs and lightweight re-ranking models, trading precision against P95 latency at each stage.
+      - Export Transformer models (DistilBERT, SBERT) to ONNX and apply dynamic INT8 quantization — 39% size reduction, under 1% accuracy loss.
+      - Apply mixed-precision training (torch.cuda.amp) to cut fine-tuning wall-clock time ~1.8× without benchmark regression.
+      - Implement query understanding with quantized DistilBERT — NER and classification in a single inference pass — deployed on AWS.
+      - Define evaluation frameworks (MRR@10, NDCG@5, precision-recall) before building models, so every optimization is grounded in measurable outcomes.
     skills:
       enable: true
-      title: "Here are a few technologies I've been working with recently:"
+      title: "Core stack:"
       items:
-        - "HTML"
-        - "CSS"
-        - "JavaScript"
-        - "React"
-        - "Node"
-        - "Express"
+        - "Python · PyTorch · Hugging Face Transformers"
+        - "ONNX · Dynamic Quantization · Mixed Precision"
+        - "BM25 · SBERT · DPR · Cross-Encoders"
+        - "Elasticsearch · FAISS · Qdrant"
+        - "FastAPI · Docker · AWS"
+        - "MRR · NDCG · Precision-Recall"
 
-  # Experience
+  # ─── Experience ────────────────────────────────────────────────────────────
   experience:
     enable: true
-    # title: "Custom Name"
     items:
-      - job: "Senior Software Developer"
-        company: "Facebook"
-        companyUrl: "https://example.com"
-        date: "Jan 2022 - present"
+      - job: "Machine Learning Engineer"
+        company: "NAIC (National AI Center)"
+        companyUrl: "https://ailab.az"
+        date: "Feb 2025 – Present"
         featuredLink:
           enable: true
-          name: "View the project"
-          url: "https://example.com"
-        content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
+          name: "GitHub"
+          url: "https://github.com/ibishovrauf"
+        content: |-
+          - Built a query processing pipeline using quantized DistilBERT for NER and query classification; deployed to AWS.
+          - Converted SBERT and DistilBERT to ONNX; applied dynamic quantization, reducing model size by **39%** with negligible accuracy loss.
+          - Applied mixed-precision training to accelerate fine-tuning while maintaining benchmark parity.
+          - Implemented cross-encoder LLM re-ranking and a Lightweight Re-ranking Transformer (LRT) for precision stage.
+          - Ran systematic latency vs. accuracy benchmarks across retrieval + re-ranking pipeline stages.
 
-      - job: "Software Developer"
-        company: "Amazon"
-        companyUrl: "https://example.com"
-        date: "Sep 2020 - Dec 2021"
-        featuredLink:
-          enable: true
-          url: "https://example.com"
-        info:
-          enable: true
-          content: I worked as a software developer for more than one year in Amazon.
-        content: |
-          I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
+      - job: "Junior Machine Learning Engineer"
+        company: "NAIC (National AI Center)"
+        companyUrl: "https://ailab.az"
+        date: "Jun 2023 – Feb 2025"
+        content: |-
+          - Designed and deployed a hybrid retrieval system (BM25 + dense vectors) fine-tuned on **500k+ domain-specific documents**.
+          - Defined evaluation suite (MRR@10, NDCG@5, precision-recall) and achieved **85% accuracy** in user testing.
+          - Integrated Elasticsearch, FAISS, and Transformer encoder models into a unified retrieval stack.
+          - Optimized data ingestion pipelines with parallel processing, achieving **4× throughput improvement**.
+          - Applied NLP preprocessing (tokenization, stopword removal, entity normalization) to improve retrieval quality.
 
-          - Lead backend developer for a product.
-          - Created a frontend design for a product.
-
-      - job: "Junior Software Developer"
-        company: "Apple"
-        companyUrl: "https://example.com"
-        date: "Jan 2020 - Aug 2020"
-        info:
-          enable: false
-        featuredLink:
-          enable: true
-          url: "https://example.com"
-        content: |
-          I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
-
-          - Lead backend developer for a product.
-          - Created a frontend design for a product.
-
-      - job: "UI/UX Designer"
-        company: "Netflix"
-        companyUrl: "https://example.com"
-        date: "June 2017 - Nov 2019"
-        featuredLink:
-          enable: true
-          url: "https://example.com"
-        content: |
-          I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
-
-          - Lead backend developer for a product.
-          - Created a frontend design for a product.
-
-      - job: "Product Designer"
-        company: "Google"
-        companyUrl: "https://example.com"
-        date: "Feb 2016 - Mar 2017"
-        content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
-
-  # Education
+  # ─── Education ─────────────────────────────────────────────────────────────
   education:
     enable: true
-    # title: "Custom Name"
+    title: "Education"
     index: false
     items:
-      - title: "Master of Business Administration"
+      - title: "M.Sc. in Information Engineering"
         school:
-          name: "University of California, Berkeley"
-          url: "https://example.org"
-        date: "2013 - 2015"
-        GPA: "3.8 out of 5.0"
+          name: "Technical University of Munich (TUM)"
+          url: "https://www.tum.de"
+        date: "2025 – Expected 2027"
         content: |-
-          Extracurricular Activities
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
-      - title: "Bachelor of Science in Computer Science"
+          Incoming graduate student. Focus areas: machine learning systems, information retrieval,
+          and efficient deep learning.
+
+      - title: "B.Sc. in Computer Science"
         school:
-          name: "Massachusetts Institute of Technology"
-          url: "https://example.org"
-        date: "2009 - 2013"
-        GPA: "3.9 out of 5.0"
+          name: "UFAZ – French-Azerbaijani University (University of Strasbourg)"
+          url: "https://ufaz.az/"
+        date: "2021 – 2025"
         content: |-
-          I Publiced two papers in the ACM SIGCHI Conference on Artificial Intelligence.
-          - [Fast and Accurate Object Detection with a Single Convolutional Neural Network](https://example.com)
-          - Face mask detection using a single convolutional neural network.
+          Core coursework: Linear Algebra, Statistics, Calculus, Algorithms & Data Structures,
+          Artificial Intelligence, Software Engineering.
+          - Graduated with a strong foundation in mathematics for ML/AI research.
+          - Completed multiple projects in NLP, retrieval systems, and system design.
 
-          Extracurricular Activities
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
-        featuredLink:
-          enable: true
-          name: "My academic record"
-          url: "https://example.com"
-      - title: "High School"
-        school:
-          name: "Thomas Jefferson High School for Science and Technology."
-          url: "https://example.org"
-        GPA: "4.2 out of 5.0"
-        featuredLink:
-          enable: true
-          url: "https://example.com"
-
-  # Achievements
+  # ─── Achievements ──────────────────────────────────────────────────────────
+  # Set enable: true and add real items when ready
   achievements:
-    enable: true
-    # title: "Custom Name"
-    items:
-      - title: Google kickstart runner
-        content: I solved all problems with optimal solution.
-        url: https://example.com
-        image: /images/achievement.jpg
-      - title: Facebook Hackathon Winner
-        content: Developed a product using Artificial Intelligence.
-        image: /images/achievement.jpg
-      - title: Hugo Profile
-        content: Developed a theme and getting 1K+ downloads per month.
-        url: "https://github.com/gurusabarish/hugo-profile"
-        image: /images/achievement.jpg
-      - title: Microsoft Imagine Runner
-        content: We are developed a product which can help others.
-      - title: Google Summer of Code
-        content: Contributed to a open source project.
-        url: https://example.com
+    enable: false
 
-  # projects
+  # ─── Projects ──────────────────────────────────────────────────────────────
   projects:
     enable: true
-    # title: "Custom Name"
     items:
-      - title: Hugo Profile
-        content: A highly customizable and mobile first Hugo template for personal portfolio and blog.
-        image: /images/projects/profile.png
-        featured:
-          name: Demo
-          link: https://hugo-profile.netlify.app
+      - title: "Hybrid Document Retrieval System"
+        content: |-
+          Production-grade search pipeline combining BM25 lexical search with SBERT/DPR dense retrieval,
+          fine-tuned on 500k+ domain-specific documents. Evaluated with MRR@10, NDCG@5, and
+          precision-recall curves; achieved 85% accuracy in user testing.
+        image: /images/projects/profile.png   # Replace with a project screenshot
         badges:
-          - "Hugo"
-          - "Bootstrap"
-          - "Javascript"
-        links:
-          - icon: fa fa-envelope
-            url: mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f
-          - icon: fab fa-github
-            url: https://github.com/gurusabarish/hugo-profile
-          - icon: fab fa-twitter
-            url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile
-
-      - title: Image Converter
-        content: A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django.
-        image: /images/projects/converter.jpg
-        featured:
-          name: Demo
-          link: https://django-converter.herokuapp.com
-        badges:
-          - "Django"
-          - "Bootstrap"
+          - "Python"
+          - "SBERT"
+          - "BM25"
+          - "Elasticsearch"
+          - "FAISS"
         links:
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/converter
+            url: https://github.com/ibishovrauf
 
-      - title: Hugo Profile V2
-        content: A clean and simple Hugo template for personal portfolio and blog.
-        image: /images/projects/profile2.jpg
-        featured:
-          name: Demo V2
-          link: https://hugo-profile-2.netlify.app
+      - title: "ONNX Model Optimization Pipeline"
+        content: |-
+          Toolchain for exporting DistilBERT and SBERT to ONNX, then applying dynamic quantization
+          and mixed-precision techniques. Achieved 39% model size reduction with measurable inference
+          speedup and minimal accuracy degradation on downstream NLP benchmarks.
+        image: /images/projects/converter.jpg  # Replace with a project screenshot
         badges:
-          - "Hugo"
-          - "Bootstrap"
-          - "Javascript"
+          - "ONNX"
+          - "Quantization"
+          - "DistilBERT"
+          - "PyTorch"
         links:
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/HugoProfileV2
+            url: https://github.com/ibishovrauf
 
-  #Contact
+      - title: "Cross-Encoder Re-ranking Service"
+        content: |-
+          Microservice wrapping a cross-encoder LLM and Lightweight Re-ranking Transformer (LRT)
+          to re-score BM25/dense first-stage candidates. Benchmarked latency vs. precision
+          trade-offs across pipeline stages to guide production deployment decisions.
+        image: /images/projects/profile2.jpg   # Replace with a project screenshot
+        badges:
+          - "Cross-Encoder"
+          - "LLM"
+          - "FastAPI"
+          - "PyTorch"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/ibishovrauf
+
+  # ─── Contact ───────────────────────────────────────────────────────────────
   contact:
     enable: true
-    # title: "Custom Name"
-    content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
-    btnName: Mail me
-    btnLink: mailto:gurusabarisha@gmail.com
+    content: "Open to ML engineering roles, research collaborations, and interesting NLP/retrieval problems. Drop me a line."
+    btnName: "Email Me"
+    btnLink: "mailto:your@email.com"  # Replace with your real email
+    # Uncomment to use Formspree instead of mailto:
     # formspree:
-    #   enable: true # `contact.email` value will be ignored
-    #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
-    #   emailCaption: "Enter your email address"
-    #   messageCaption: "Enter your message here"
+    #   enable: true
+    #   formId: abcdefgh   # From https://formspree.io/f/abcdefgh
+    #   emailCaption: "Your email"
+    #   messageCaption: "Your message"
     #   messageRows: 5
 
+  # ─── Footer ────────────────────────────────────────────────────────────────
   footer:
     recentPosts:
       path: "blogs"
       count: 3
-      title: Recent Posts
+      title: "Recent Posts"
       enable: true
       disableFeaturedImage: false
     socialNetworks:
-      github: https://github.com
-      linkedin: https://linkedin.com
-      twitter: https://twitter.com
-      instagram: https://instagram.com
-      facebook: https://facebook.com
+      github: https://github.com/ibishovrauf
+      linkedin: https://linkedin.com/in/rauf-ibishov/
 
-  # List pages like blogs and posts
   listPages:
     disableFeaturedImage: false
 
-  # Single pages like blog and post
   singlePages:
     socialShare: true
     readTime:
@@ -400,7 +302,6 @@ params:
     tags:
       openInNewTab: true
 
-  # For translations
   terms:
     read: "Read"
     toc: "Table Of Contents"
@@ -412,6 +313,3 @@ params:
     article: "Jan 2, 2006"
     articleList: "Jan 2, 2006"
     articleRecent: "Jan 2, 2006"
-
-  #customScripts: -| # You can add custom scripts which will be added before </body> tag
-  #  <script type="text/javascript"><!-- any script here --></script>
