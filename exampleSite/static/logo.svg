@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="Rauf Ibishov">
+  <!-- Background -->
+  <rect width="40" height="40" rx="8" fill="#0f172a"/>
+  <!-- Initials -->
+  <text
+    x="20" y="25"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="800"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="1.5"
+  >RI</text>
+  <!-- Accent underline -->
+  <line x1="11" y1="30" x2="29" y2="30" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+</svg>

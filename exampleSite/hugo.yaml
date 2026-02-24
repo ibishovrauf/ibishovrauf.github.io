@@ -83,6 +83,7 @@ params:
 
   navbar:
     align: ms-auto
+    brandLogo: "/logo.svg"
     brandName: "Rauf Ibishov"
     disableSearch: false
     stickyNavBar:
