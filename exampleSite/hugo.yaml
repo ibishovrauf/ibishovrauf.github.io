@@ -224,6 +224,32 @@ params:
   projects:
     enable: true
     items:
+      - title: "e-qanun.ai — AI Legal Search Platform"
+        content: |-
+          State-commissioned AI legal search platform built at NAIC under Azerbaijan's AI Strategy 2025–2028,
+          officially launched September 2025. Operates across three simultaneous search spaces — lexical (BM25),
+          semantic (SBERT/DPR fine-tuned on 500k+ legal documents), and legal-hierarchy-aware structural ranking —
+          with a multi-stage query pipeline (normalization → Azerbaijani spell correction → NER → intent classification)
+          running under a 200ms end-to-end latency budget. Cross-encoder + LRT re-ranking, ONNX-quantized models
+          (39% size reduction), continuous learning from click-through and dwell-time signals, and 85% accuracy
+          measured via MRR@10 and NDCG@5.
+        image: /images/projects/profile.png
+        featured:
+          name: Live Platform
+          link: https://e-qanun.ai
+        badges:
+          - "Python"
+          - "SBERT"
+          - "DPR"
+          - "DistilBERT"
+          - "Elasticsearch"
+          - "ONNX"
+        links:
+          - icon: fas fa-external-link-alt
+            url: https://e-qanun.ai
+          - icon: fas fa-book
+            url: https://research.e-qanun.ai
+
       - title: "Hybrid Document Retrieval System"
         content: |-
           Production-grade search pipeline combining BM25 lexical search with SBERT/DPR dense retrieval,
