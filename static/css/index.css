@@ -143,6 +143,9 @@ header .navbar.animate {
     width: 1em;
 }
 
+body.dark .leetcode-light { display: none; }
+body:not(.dark) .leetcode-dark { display: none; }
+
 #hero a.btn.social-icon:hover {
     opacity: 0.8;
 }

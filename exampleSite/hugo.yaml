@@ -114,8 +114,8 @@ params:
       enable: true
       name: "Resume"
       url: "/resume.pdf"        # Replace with a link to your PDF resume
-      download: true
-      newPage: false
+      download: false
+      newPage: true
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
@@ -233,7 +233,7 @@ params:
           running under a 200ms end-to-end latency budget. Cross-encoder + LRT re-ranking, ONNX-quantized models
           (39% size reduction), continuous learning from click-through and dwell-time signals, and 85% accuracy
           measured via MRR@10 and NDCG@5.
-        image: /images/projects/e-qanun-ai.svg
+        image: /images/projects/eqanun.png
         featured:
           name: Live Platform
           link: https://e-qanun.ai
