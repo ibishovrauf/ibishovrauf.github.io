@@ -42,7 +42,7 @@ enableCodeCopy = true
   showTaxonomies = true
   showWordCount = false
   showSummary = true
-  sharingLinks = ["linkedin", "twitter"]
+  sharingLinks = []
 
 # ─── List pages ────────────────────────────────────────────────────────────────
 [list]

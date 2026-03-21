@@ -4,3 +4,9 @@
   height: 40px;
   width: auto;
 }
+
+/* ── Project card images ───────────────────────────────────────────────── */
+.thumbnail_card img {
+  object-fit: contain !important;
+  padding: 1.5rem;
+}
