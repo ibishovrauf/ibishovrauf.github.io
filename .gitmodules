@@ -1,0 +1,3 @@
+[submodule "exampleSite/themes/blowfish"]
+	path = exampleSite/themes/blowfish
+	url = https://github.com/nunocoracao/blowfish.git

@@ -1,14 +1,9 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Hugo → GitHub Pages deployment
 #
-# Repo layout (monorepo):
-#   /                  ← Hugo theme source (hugo-profile)
-#   exampleSite/       ← Your portfolio site
-#   exampleSite/themes/hugo-profile → symlinked to repo root at build time
-#
-# Why the symlink: --themesDir ../.. worked locally because the folder was named
-# "hugo-profile". On the runner the checkout folder is the repo name, so we
-# create the symlink explicitly instead.
+# Repo layout:
+#   exampleSite/              ← Your portfolio site (Blowfish theme)
+#   exampleSite/themes/blowfish ← git submodule
 #
 # Required repo settings (one-time, done in GitHub UI):
 #   Settings → Pages → Source → "GitHub Actions"
@@ -43,7 +38,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0     # required for .GitInfo / lastmod to work correctly
+          fetch-depth: 0          # required for .GitInfo / lastmod to work correctly
+          submodules: recursive   # pull Blowfish theme submodule
 
       - name: Install Hugo Extended
         run: |
@@ -60,11 +56,6 @@ jobs:
         # Outputs: base_url (e.g. https://ibishovrauf.github.io or https://yourdomain.com)
         # For custom domains this equals your CNAME value.
         # For project pages (non-root) it appends the repo name — handled automatically.
-
-      - name: Link theme (monorepo symlink)
-        run: |
-          mkdir -p exampleSite/themes
-          ln -sf ${{ github.workspace }} exampleSite/themes/hugo-profile
 
       - name: Build site
         run: |

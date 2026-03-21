@@ -1,0 +1,26 @@
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 10
+
+[[main]]
+  name = "Experience"
+  pageRef = "experience"
+  weight = 20
+
+[[main]]
+  name = "Projects"
+  pageRef = "projects"
+  weight = 30
+
+[[main]]
+  name = "Blog"
+  pageRef = "posts"
+  weight = 40
+
+[[main]]
+  name = "Resume"
+  url = "/resume.pdf"
+  weight = 50
+  [main.params]
+    target = "_blank"

@@ -1,0 +1,68 @@
+colorScheme = "slate"
+defaultAppearance = "dark"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+
+# ─── Homepage ──────────────────────────────────────────────────────────────────
+[homepage]
+  layout = "profile"
+  homepageImage = "img/avatar.png"
+  showRecent = true
+  showRecentItems = 3
+  showMoreLink = true
+  showMoreLinkDest = "/posts"
+  cardView = false
+
+# ─── Header ────────────────────────────────────────────────────────────────────
+[header]
+  layout = "basic"
+
+# ─── Footer ────────────────────────────────────────────────────────────────────
+[footer]
+  showMenu = false
+  showCopyright = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+# ─── Article pages ─────────────────────────────────────────────────────────────
+[article]
+  showDate = true
+  showDateUpdated = false
+  showAuthor = true
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showEdit = false
+  showHeadingAnchors = true
+  showPagination = true
+  showReadingTime = true
+  showTableOfContents = true
+  showTaxonomies = true
+  showWordCount = false
+  showSummary = true
+  sharingLinks = ["linkedin", "twitter"]
+
+# ─── List pages ────────────────────────────────────────────────────────────────
+[list]
+  showCards = true
+  showBreadcrumbs = false
+  groupByYear = true
+  cardView = true
+  cardViewScreenWidth = false
+
+# ─── Taxonomy pages ────────────────────────────────────────────────────────────
+[taxonomy]
+  showTermCount = true
+  showHero = false
+  cardView = false
+
+# ─── Term pages ────────────────────────────────────────────────────────────────
+[term]
+  showHero = false
+  showTableOfContents = false
+
+# ─── Sitemap ───────────────────────────────────────────────────────────────────
+[sitemap]
+  excludedKinds = []

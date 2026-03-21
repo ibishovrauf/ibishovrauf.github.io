@@ -1,0 +1,6 @@
+/* ── Navbar logo size ──────────────────────────────────────────────────── */
+.logo svg,
+.logo img {
+  height: 40px;
+  width: auto;
+}
