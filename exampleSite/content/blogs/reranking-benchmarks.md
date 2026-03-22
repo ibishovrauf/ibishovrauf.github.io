@@ -130,4 +130,4 @@ We deployed the LRT re-ranker as a FastAPI microservice:
 
 ---
 
-*Repo on [GitHub](https://github.com/ibishovrauf). Questions? [Email me](mailto:your@email.com).*
+*Repo on [GitHub](https://github.com/ibishovrauf). Questions? [Email me](mailto:info@raufibishov.com).*

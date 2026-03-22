@@ -133,4 +133,4 @@ pipeline the dynamic approach hit the latency target, so we stopped there.
 
 ---
 
-*Code on [GitHub](https://github.com/ibishovrauf). Questions? [Email me](mailto:your@email.com).*
+*Code on [GitHub](https://github.com/ibishovrauf). Questions? [Email me](mailto:info@raufibishov.com).*
