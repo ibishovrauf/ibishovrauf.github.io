@@ -1,6 +1,6 @@
 ---
 title: "e-qanun.ai — AI-Powered Legal Search for Azerbaijani Law"
-date: 2025-09-01
+date: 2025-09-25
 description: "State-commissioned legal search platform serving 25k users. Multi-stage retrieval pipeline combining BM25, dense vectors, and cross-encoder re-ranking — all under 200ms."
 tags:
   - Python
@@ -12,7 +12,7 @@ tags:
   - DistilBERT
   - FastAPI
   - FAISS
-showDate: false
+showDate: true
 showReadingTime: false
 showAuthor: false
 showPagination: true
