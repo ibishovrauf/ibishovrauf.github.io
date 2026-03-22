@@ -10,8 +10,8 @@ title = "Rauf Ibishov"
   [params.author]
     name = "Rauf Ibishov"
     image = "img/avatar.png"
-    headline = "MSc @ TUM · NLP Systems"
-    bio = "Three years shipping search pipelines at scale. Incoming MSc @ TUM. I build retrieval, re-ranking, and quantization systems for production."
+    headline = "ML Engineer · 3 yrs building search systems · MSc @ TUM"
+    bio = "Building retrieval and ranking systems at Azerbaijan's National AI Center. Starting my MSc at TUM Heilbronn — looking for werkstudent roles in NLP, search, or ML infrastructure."
     links = [
       { github = "https://github.com/ibishovrauf" },
       { linkedin = "https://linkedin.com/in/rauf-ibishov/" },
