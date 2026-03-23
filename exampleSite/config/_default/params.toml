@@ -12,7 +12,7 @@ enableCodeCopy = true
   showRecent = true
   showRecentItems = 3
   showMoreLink = true
-  showMoreLinkDest = "/posts"
+  showMoreLinkDest = "/projects"
   cardView = false
 
 # ─── Header ────────────────────────────────────────────────────────────────────

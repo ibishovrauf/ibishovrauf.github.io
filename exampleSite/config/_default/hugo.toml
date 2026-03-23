@@ -6,6 +6,8 @@ theme = "blowfish"
 enableRobotsTXT = true
 enableEmoji = true
 
+mainSections = ["projects"]
+
 [pagination]
   pagerSize = 10
 
