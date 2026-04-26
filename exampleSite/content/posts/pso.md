@@ -7,6 +7,8 @@ tags:
   - NumPy
   - Matplotlib
   - Optimization
+  - Visualization
+  - Competition
   - Hackathon
 showDate: true
 showReadingTime: true
@@ -14,6 +16,8 @@ showAuthor: true
 showPagination: true
 showTableOfContents: true
 ---
+
+*PSO config: 30 particles · 30 iterations · W = 0.8 · c1 = 0.1 · c2 = 0.1–0.2. The demo of particles converging on a 3D surface won the judges over more than the math did.*
 
 In March 2022, our 3-person team placed 2nd out of 40 teams at the UFAZ (French-Azerbaijani University) Hackathon, winning a 2,500 AZN prize. We built an interactive visualization of Particle Swarm Optimization — showing how a swarm of particles explores a solution space and converges on the global minimum.
 
@@ -139,6 +143,13 @@ This was March 2022 — about six months before I joined NAIC. Looking back, thi
 - Event: UFAZ Hackathon 2022, French-Azerbaijani University
 - Result: 2nd place / 40 teams
 - Prize: 2,500 AZN
+
+---
+
+## Related
+
+- [TEKNOFEST 2022 — Deep Q-Learning for Traffic Signal Control](/posts/teknofest/)
+- [ActInSpace 2022 — AI Disease Detection from Satellite Imagery](/posts/actinspace/)
 
 ---
 

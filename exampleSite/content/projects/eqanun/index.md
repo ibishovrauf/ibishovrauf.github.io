@@ -12,12 +12,15 @@ tags:
   - DistilBERT
   - FastAPI
   - FAISS
+featured: true
 showDate: true
 showReadingTime: false
 showAuthor: false
 showPagination: true
 showTableOfContents: true
 ---
+
+*Status: **Live in production** · 25,000 users · ~1,000 queries/day · NAIC*
 
 <style>
 .dark .dark-img { display: block; }

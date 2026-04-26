@@ -5,12 +5,15 @@ draft: false
 tags:
   - NLP
   - Information Retrieval
+  - Retrieval
   - SBERT
   - BM25
   - RAG
 description: "How I built a hybrid retrieval pipeline (BM25 + SBERT/DPR) over 500k+ documents, the trade-offs involved, and what the benchmarks actually showed."
 showTableOfContents: true
 ---
+
+*Key insight: pure BM25 misses semantic matches; pure dense vectors miss exact keywords. Hybrid wins on both MRR@10 and NDCG@5 — and the score-fusion choice (RRF over linear interpolation) matters as much as the model choice.*
 
 ## Why Pure BM25 (or Pure Dense) Isn't Enough
 
@@ -102,3 +105,11 @@ Final hybrid system reached **85% accuracy** in user acceptance testing vs. ~62%
 ---
 
 *Code for this pipeline is on [GitHub](https://github.com/ibishovrauf). Questions? [Email me](mailto:info@raufibishov.com).*
+
+---
+
+## Related
+
+- [Shrinking Transformers for Production: ONNX Export + Dynamic Quantization](/posts/onnx-quantization/) — the encoder optimization referenced in Stage 2.
+- [Re-ranking LLMs in Production: Benchmarking Latency vs. Precision](/posts/reranking-benchmarks/) — what we measured at Stage 3 of this pipeline.
+- [e-qanun.ai project page](/projects/eqanun/) — the production system this retrieval stack powers.

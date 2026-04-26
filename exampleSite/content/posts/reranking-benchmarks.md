@@ -8,9 +8,12 @@ tags:
   - LLM
   - Benchmarking
   - RAG
+  - Retrieval
 description: "When does adding a re-ranker actually help? A practical benchmark of cross-encoder LLMs and LRT models against a BM25+dense first stage."
 showTableOfContents: true
 ---
+
+*Key question: does the re-ranking precision gain justify the latency cost at each pipeline stage? On a 100ms end-to-end SLA the answer is yes — but only with a quantized in-domain re-ranker, not a stock cross-encoder.*
 
 ## Context: Why Re-rank at All?
 
@@ -125,3 +128,11 @@ We deployed the LRT re-ranker as a FastAPI microservice:
 ---
 
 *Repo on [GitHub](https://github.com/ibishovrauf). Questions? [Email me](mailto:info@raufibishov.com).*
+
+---
+
+## Related
+
+- [Hybrid Retrieval: Combining BM25 and Dense Vectors for Production Search](/posts/hybrid-retrieval/) — the BM25+dense first stage these re-rankers sit on top of.
+- [Shrinking Transformers for Production: ONNX Export + Dynamic Quantization](/posts/onnx-quantization/) — the quantization recipe that made the LRT re-ranker affordable on CPU.
+- [e-qanun.ai project page](/projects/eqanun/) — the production deployment running this re-ranking layer.

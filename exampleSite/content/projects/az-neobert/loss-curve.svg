@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .axis { stroke: #94a3b8; stroke-width: 1; }
+    .grid { stroke: #cbd5e1; stroke-width: 1; stroke-dasharray: 3 3; }
+    .tick { font-size: 11px; fill: #475569; }
+    .lbl { font-size: 13px; fill: #0f172a; font-weight: 600; }
+    .title { font-size: 16px; fill: #0f172a; font-weight: 700; }
+    .sub { font-size: 12px; fill: #475569; }
+    .annot { font-size: 11px; fill: #475569; font-style: italic; }
+    .pt { font-size: 11px; fill: #0f172a; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .lbl, .title, .pt { fill: #e2e8f0; }
+      .tick, .sub, .annot { fill: #94a3b8; }
+      .axis { stroke: #64748b; }
+      .grid { stroke: #334155; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="380" y="28" text-anchor="middle" class="title">AzNEOBERT training loss · Phase 1</text>
+  <text x="380" y="48" text-anchor="middle" class="sub">8× H200 · global batch 2,304 · seq 1,024 · bf16 · DeepSpeed ZeRO-2</text>
+
+  <!-- Chart area: x = 80..720, y = 80..330 (640 x 250) -->
+  <!-- x: step 0 → 80, step 4500 → 720 (640/4500 = 0.142 px per step) -->
+  <!-- y: loss 0 → 330, loss 12 → 80 (250/12 = 20.83 px per loss unit) -->
+
+  <!-- Y grid lines at loss 2, 4, 6, 8, 10, 12 -->
+  <line x1="80" y1="330" x2="720" y2="330" class="axis"/>
+  <line x1="80" y1="80"  x2="80" y2="330" class="axis"/>
+
+  <line x1="80" y1="288" x2="720" y2="288" class="grid"/>
+  <line x1="80" y1="247" x2="720" y2="247" class="grid"/>
+  <line x1="80" y1="205" x2="720" y2="205" class="grid"/>
+  <line x1="80" y1="163" x2="720" y2="163" class="grid"/>
+  <line x1="80" y1="122" x2="720" y2="122" class="grid"/>
+  <line x1="80" y1="80"  x2="720" y2="80"  class="grid"/>
+
+  <text x="74" y="334" text-anchor="end" class="tick">0</text>
+  <text x="74" y="292" text-anchor="end" class="tick">2</text>
+  <text x="74" y="251" text-anchor="end" class="tick">4</text>
+  <text x="74" y="209" text-anchor="end" class="tick">6</text>
+  <text x="74" y="167" text-anchor="end" class="tick">8</text>
+  <text x="74" y="126" text-anchor="end" class="tick">10</text>
+  <text x="74" y="84"  text-anchor="end" class="tick">12</text>
+
+  <text x="34" y="208" text-anchor="middle" class="sub" transform="rotate(-90 34 208)">MLM loss</text>
+
+  <!-- X ticks at step 0, 1000, 2000, 3000, 4000, 4500 -->
+  <text x="80"  y="350" text-anchor="middle" class="tick">0</text>
+  <text x="222" y="350" text-anchor="middle" class="tick">1,000</text>
+  <text x="364" y="350" text-anchor="middle" class="tick">2,000</text>
+  <text x="506" y="350" text-anchor="middle" class="tick">3,000</text>
+  <text x="649" y="350" text-anchor="middle" class="tick">4,000</text>
+  <text x="380" y="375" text-anchor="middle" class="sub">optimizer step</text>
+
+  <!-- ln(64000) baseline -->
+  <line x1="80" y1="98" x2="720" y2="98" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7"/>
+  <text x="715" y="92" text-anchor="end" class="annot" fill="#ef4444">ln(64,000) ≈ 11.07 (random init baseline)</text>
+
+  <!-- Warmup-complete vertical -->
+  <line x1="429" y1="80" x2="429" y2="330" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7"/>
+  <text x="425" y="76" text-anchor="end" class="annot" fill="#8b5cf6">warmup complete (step 2,456 · lr = 1e-4)</text>
+
+  <!-- Loss curve: piecewise smoothed
+       (0, 11.10) → x=80,  y=98.7
+       (200, 7.95) → x=108.4, y=164.4
+       (2,456, 4.06) → x=429, y=245.4
+       (4,131, 2.35) → x=666.6, y=281
+  -->
+  <path d="M 80 98.7 C 95 100, 100 145, 108.4 164.4 S 350 230, 429 245.4 S 600 270, 666.6 281"
+        fill="none" stroke="#4a9eed" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Data points -->
+  <circle cx="80"   cy="98.7" r="5" fill="#ef4444"/>
+  <text   x="92"    y="92" class="pt">11.10</text>
+
+  <circle cx="108.4" cy="164.4" r="5" fill="#f59e0b"/>
+  <text   x="120"    y="158" class="pt">7.95 @ step 200</text>
+
+  <circle cx="429"  cy="245.4" r="5" fill="#8b5cf6"/>
+  <text   x="441"   y="238" class="pt">4.06</text>
+
+  <circle cx="666.6" cy="281" r="5" fill="#22c55e"/>
+  <text   x="660"    y="276" text-anchor="end" class="pt">2.35 @ step 4,131</text>
+
+  <!-- Legend -->
+  <text x="730" y="208" text-anchor="end" class="annot">~1.24M tokens/sec · 1.68s/step</text>
+</svg>

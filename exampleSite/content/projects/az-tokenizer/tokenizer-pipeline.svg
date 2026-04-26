@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <style>
+    .lbl { font-size: 13px; fill: #0f172a; font-weight: 600; }
+    .sub { font-size: 11px; fill: #475569; }
+    .title { font-size: 15px; fill: #0f172a; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      .lbl, .title { fill: #e2e8f0; }
+      .sub { fill: #94a3b8; }
+    }
+  </style>
+
+  <text x="440" y="28" text-anchor="middle" class="title">Preprocessing pipeline · MongoDB streaming · multiprocessing · bulk_write</text>
+
+  <!-- Stage 1: Corpus -->
+  <rect x="20" y="80" width="140" height="90" rx="10" fill="#dbe4ff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="90" y="108" text-anchor="middle" class="lbl">Raw corpus</text>
+  <text x="90" y="128" text-anchor="middle" class="sub">~100–150 GB</text>
+  <text x="90" y="144" text-anchor="middle" class="sub">10 collections</text>
+  <text x="90" y="160" text-anchor="middle" class="sub">95.7B chars</text>
+
+  <!-- Stage 2: Entity sanitization -->
+  <rect x="190" y="80" width="140" height="90" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+  <text x="260" y="108" text-anchor="middle" class="lbl">Step 1</text>
+  <text x="260" y="126" text-anchor="middle" class="sub">Entity sanitization</text>
+  <text x="260" y="142" text-anchor="middle" class="sub">URL → [URL]</text>
+  <text x="260" y="158" text-anchor="middle" class="sub">EMAIL · PHONE</text>
+
+  <!-- Stage 3: Emoji norm -->
+  <rect x="360" y="80" width="140" height="90" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+  <text x="430" y="108" text-anchor="middle" class="lbl">Step 2</text>
+  <text x="430" y="126" text-anchor="middle" class="sub">Emoji normalization</text>
+  <text x="430" y="142" text-anchor="middle" class="sub">all → [EMOJI]</text>
+  <text x="430" y="158" text-anchor="middle" class="sub">−0.215 fertility</text>
+
+  <!-- Stage 4: Punctuation norm -->
+  <rect x="530" y="80" width="140" height="90" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+  <text x="600" y="108" text-anchor="middle" class="lbl">Step 3</text>
+  <text x="600" y="126" text-anchor="middle" class="sub">Punctuation norm</text>
+  <text x="600" y="142" text-anchor="middle" class="sub">"smart" → ASCII</text>
+  <text x="600" y="158" text-anchor="middle" class="sub">NFKC ready</text>
+
+  <!-- Stage 5: char stats -->
+  <rect x="700" y="80" width="160" height="90" rx="10" fill="#d3f9d8" stroke="#22c55e" stroke-width="2"/>
+  <text x="780" y="108" text-anchor="middle" class="lbl">Step 4</text>
+  <text x="780" y="126" text-anchor="middle" class="sub">Character statistics</text>
+  <text x="780" y="142" text-anchor="middle" class="sub">char_stats.json</text>
+  <text x="780" y="158" text-anchor="middle" class="sub">drives alphabet</text>
+
+  <!-- arrows row 1 -->
+  <line x1="160" y1="125" x2="190" y2="125" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="330" y1="125" x2="360" y2="125" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="500" y1="125" x2="530" y2="125" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="670" y1="125" x2="700" y2="125" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Down to training -->
+  <line x1="780" y1="170" x2="780" y2="220" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Sampling -->
+  <rect x="280" y="220" width="200" height="80" rx="10" fill="#eebefa" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="380" y="248" text-anchor="middle" class="lbl">Sampling</text>
+  <text x="380" y="266" text-anchor="middle" class="sub">per-collection rates</text>
+  <text x="380" y="282" text-anchor="middle" class="sub">1.55M docs sample</text>
+
+  <!-- training -->
+  <rect x="540" y="220" width="200" height="80" rx="10" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
+  <text x="640" y="248" text-anchor="middle" class="lbl">WordPiece training</text>
+  <text x="640" y="266" text-anchor="middle" class="sub">vocab = 64,000 · ##</text>
+  <text x="640" y="282" text-anchor="middle" class="sub">NFKC · whitespace</text>
+
+  <line x1="780" y1="220" x2="740" y2="245" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="540" y1="245" x2="480" y2="245" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="380" y1="220" x2="380" y2="200" stroke="#475569" stroke-width="2"/>
+  <path d="M380 200 L380 195 L120 195 L120 170" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arr)"/>
+</svg>

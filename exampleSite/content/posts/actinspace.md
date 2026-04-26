@@ -6,6 +6,8 @@ tags:
   - Python
   - Computer Vision
   - Satellite Imagery
+  - Remote Sensing
+  - Competition
   - Hackathon
 showDate: true
 showReadingTime: true
@@ -14,7 +16,9 @@ showPagination: true
 showTableOfContents: false
 ---
 
-In November 2022, I led a team of four at **ActInSpace 2022** — an international hackathon organized by the French National Centre for Space Studies (CNES) and the European Space Agency (ESA), held simultaneously across 34 countries. Our local edition took place at UFAZ (French-Azerbaijani University) in Baku, with 32 teams competing over a 24-hour sprint.
+*Key lesson: with four people and 24 hours, the bottleneck is deciding what NOT to build. The first two hours of scoping discipline are what got us to a working demo.*
+
+In November 2022, I led a team of four at **ActInSpace 2022** — an international hackathon organized by the French National Centre for Space Studies (CNES) and the European Space Agency (ESA), held simultaneously across **34 countries and 66 cities** with **2,900+ registrants and 410+ teams competing worldwide**. Our local edition took place at UFAZ (French-Azerbaijani University) in Baku — local partner: Azercosmos — with 32 teams competing over a 24-hour sprint.
 
 ## What we built
 
@@ -32,7 +36,15 @@ It also introduced me to working with geospatial data and remote sensing — a d
 
 - **Event:** ActInSpace 2022 — CNES/ESA International Hackathon
 - **Venue:** UFAZ (French-Azerbaijani University), Baku
+- **Local partner:** Azercosmos
 - **Role:** Team lead (4 members)
-- **Format:** 24-hour hackathon, 32 teams locally, 34 countries globally
+- **Format:** 24-hour hackathon, 32 teams locally, 410+ teams across 34 countries / 66 cities globally
 
 *November 2022 — Baku, Azerbaijan*
+
+---
+
+## Related
+
+- [TEKNOFEST 2022 — Deep Q-Learning for Traffic Signal Control](/posts/teknofest/)
+- [2nd Place at UFAZ Hackathon — Visualizing Particle Swarm Optimization](/posts/pso/)

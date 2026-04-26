@@ -8,9 +8,12 @@ tags:
   - Model Optimization
   - DistilBERT
   - Inference
+  - Optimization
 description: "A practical guide to exporting DistilBERT and SBERT to ONNX, applying dynamic quantization, and measuring the real-world latency vs. accuracy trade-off."
 showTableOfContents: true
 ---
+
+*Key result: 39% size reduction with <1% accuracy loss and ~63% lower per-query latency vs. native PyTorch — measured on a 4-core CPU at 512 queries × seq-len 64.*
 
 ## The Problem: Transformers Are Slow at Inference
 
@@ -134,3 +137,11 @@ pipeline the dynamic approach hit the latency target, so we stopped there.
 ---
 
 *Code on [GitHub](https://github.com/ibishovrauf). Questions? [Email me](mailto:info@raufibishov.com).*
+
+---
+
+## Related
+
+- [Hybrid Retrieval: Combining BM25 and Dense Vectors for Production Search](/posts/hybrid-retrieval/) — where these quantized encoders live in the pipeline.
+- [Re-ranking LLMs in Production: Benchmarking Latency vs. Precision](/posts/reranking-benchmarks/) — same quantization recipe, applied to the cross-encoder.
+- [e-qanun.ai project page](/projects/eqanun/) — production deployment of the optimized stack.

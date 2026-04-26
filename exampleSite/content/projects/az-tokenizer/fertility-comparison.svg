@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <style>
+    .axis { stroke: #94a3b8; stroke-width: 1; }
+    .grid { stroke: #cbd5e1; stroke-width: 1; stroke-dasharray: 3 3; }
+    .tick { font-size: 11px; fill: #475569; }
+    .label { font-size: 13px; fill: #0f172a; font-weight: 600; }
+    .value { font-size: 12px; fill: #0f172a; font-weight: 700; }
+    .title { font-size: 16px; fill: #0f172a; font-weight: 700; }
+    .sub { font-size: 12px; fill: #475569; }
+    .annot { font-size: 11px; fill: #475569; font-style: italic; }
+    @media (prefers-color-scheme: dark) {
+      .label, .value, .title { fill: #e2e8f0; }
+      .tick, .sub, .annot { fill: #94a3b8; }
+      .axis { stroke: #64748b; }
+      .grid { stroke: #334155; }
+    }
+  </style>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" class="title">Mean fertility on clean Azerbaijani text (lower is better)</text>
+  <text x="360" y="48" text-anchor="middle" class="sub">5.2 chars/token · 83% whole-word · trained on 1.55M docs across 10 collections</text>
+
+  <!-- Chart area: x = 200..680, y = 80..300 -->
+  <!-- 5 bars, each row 44px tall -->
+  <!-- x scale: 0 → 200, 4.0 → 680 (480 px range, scale 120 px per unit) -->
+
+  <!-- Grid lines at 1, 2, 3, 4 -->
+  <line x1="320" y1="78" x2="320" y2="304" class="grid"/>
+  <line x1="440" y1="78" x2="440" y2="304" class="grid"/>
+  <line x1="560" y1="78" x2="560" y2="304" class="grid"/>
+  <line x1="680" y1="78" x2="680" y2="304" class="grid"/>
+
+  <!-- Y axis -->
+  <line x1="200" y1="78" x2="200" y2="304" class="axis"/>
+  <!-- X axis -->
+  <line x1="200" y1="304" x2="680" y2="304" class="axis"/>
+
+  <!-- Tick labels -->
+  <text x="200" y="322" text-anchor="middle" class="tick">0</text>
+  <text x="320" y="322" text-anchor="middle" class="tick">1.0</text>
+  <text x="440" y="322" text-anchor="middle" class="tick">2.0</text>
+  <text x="560" y="322" text-anchor="middle" class="tick">3.0</text>
+  <text x="680" y="322" text-anchor="middle" class="tick">4.0</text>
+  <text x="440" y="343" text-anchor="middle" class="sub">subword pieces per word</text>
+
+  <!-- Threshold marker at 2.5 -->
+  <line x1="500" y1="78" x2="500" y2="304" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7"/>
+  <text x="500" y="74" text-anchor="middle" class="annot" fill="#ef4444">threshold 2.5</text>
+
+  <!-- Bars: each bar is 28 high, 12 padding -->
+  <!-- 1.67 ours -->
+  <rect x="200" y="86" width="200.4" height="28" fill="#22c55e" rx="3"/>
+  <text x="195" y="105" text-anchor="end" class="label">Ours (WordPiece)</text>
+  <text x="408" y="105" class="value">1.67 ✓</text>
+
+  <!-- 2.00 HPLT -->
+  <rect x="200" y="130" width="240" height="28" fill="#4a9eed" rx="3"/>
+  <text x="195" y="149" text-anchor="end" class="label">HPLT az-BERT</text>
+  <text x="448" y="149" class="value">2.00</text>
+
+  <!-- 2.14 Competitor C -->
+  <rect x="200" y="174" width="256.8" height="28" fill="#06b6d4" rx="3"/>
+  <text x="195" y="193" text-anchor="end" class="label">Competitor C</text>
+  <text x="464" y="193" class="value">2.14</text>
+
+  <!-- 2.51 Competitor B -->
+  <rect x="200" y="218" width="301.2" height="28" fill="#f59e0b" rx="3"/>
+  <text x="195" y="237" text-anchor="end" class="label">Competitor B</text>
+  <text x="509" y="237" class="value">2.51 ✗</text>
+
+  <!-- 3.70 mBERT -->
+  <rect x="200" y="262" width="444" height="28" fill="#ef4444" rx="3"/>
+  <text x="195" y="281" text-anchor="end" class="label">mBERT</text>
+  <text x="652" y="281" class="value">3.70 ✗</text>
+</svg>
