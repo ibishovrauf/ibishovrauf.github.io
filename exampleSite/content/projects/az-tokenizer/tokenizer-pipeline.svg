@@ -142,7 +142,7 @@
 
   <!-- Evaluation & Selection -->
   <rect x="720" y="400" width="180" height="110" rx="8" class="box-green" stroke-width="2"/>
-  <text x="810" y="425" text-anchor="middle" class="box-text">Evaluation &</text>
+  <text x="810" y="425" text-anchor="middle" class="box-text">Evaluation &amp;</text>
   <text x="810" y="443" text-anchor="middle" class="box-text">Selection</text>
   <text x="810" y="465" text-anchor="middle" class="box-detail">47,934 samples</text>
   <text x="810" y="480" text-anchor="middle" class="box-detail">→ wp_2_uncased</text>
