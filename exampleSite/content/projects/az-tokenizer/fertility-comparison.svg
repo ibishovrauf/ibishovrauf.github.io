@@ -1,75 +1,108 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-  <style>
-    .axis { stroke: #94a3b8; stroke-width: 1; }
-    .grid { stroke: #cbd5e1; stroke-width: 1; stroke-dasharray: 3 3; }
-    .tick { font-size: 11px; fill: #475569; }
-    .label { font-size: 13px; fill: #0f172a; font-weight: 600; }
-    .value { font-size: 12px; fill: #0f172a; font-weight: 700; }
-    .title { font-size: 16px; fill: #0f172a; font-weight: 700; }
-    .sub { font-size: 12px; fill: #475569; }
-    .annot { font-size: 11px; fill: #475569; font-style: italic; }
-    @media (prefers-color-scheme: dark) {
-      .label, .value, .title { fill: #e2e8f0; }
-      .tick, .sub, .annot { fill: #94a3b8; }
-      .axis { stroke: #64748b; }
-      .grid { stroke: #334155; }
-    }
-  </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <style>
+      .axis { stroke: #94a3b8; stroke-width: 1.5; }
+      .grid { stroke: #cbd5e1; stroke-width: 0.8; stroke-dasharray: 4 4; }
+      .tick { font-size: 11px; fill: #475569; }
+      .label { font-size: 12px; fill: #0f172a; font-weight: 600; }
+      .value { font-size: 13px; fill: #0f172a; font-weight: 700; }
+      .title { font-size: 17px; fill: #0f172a; font-weight: 700; }
+      .sub { font-size: 12px; fill: #475569; }
+      .annot { font-size: 10px; fill: #8b5cf6; font-style: italic; font-weight: 500; }
+
+      @media (prefers-color-scheme: dark) {
+        .axis { stroke: #64748b; }
+        .grid { stroke: #334155; }
+        .label, .value, .title { fill: #e2e8f0; }
+        .tick, .sub { fill: #94a3b8; }
+        .annot { fill: #c4b5fd; }
+      }
+
+      /* Bar colors with dark mode variants */
+      .bar-selected { fill: #22c55e; }
+      .bar-wp { fill: #60a5fa; }
+      .bar-spm { fill: #fbbf24; }
+      .bar-hplt { fill: #34d399; }
+      .bar-xlmr { fill: #f87171; }
+      .bar-mbert { fill: #ef4444; }
+
+      @media (prefers-color-scheme: dark) {
+        .bar-selected { fill: #10b981; }
+        .bar-wp { fill: #3b82f6; }
+        .bar-spm { fill: #f59e0b; }
+        .bar-hplt { fill: #10b981; }
+        .bar-xlmr { fill: #f87171; }
+        .bar-mbert { fill: #dc2626; }
+      }
+    </style>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
 
   <!-- Title -->
-  <text x="360" y="28" text-anchor="middle" class="title">Mean fertility on clean Azerbaijani text (lower is better)</text>
-  <text x="360" y="48" text-anchor="middle" class="sub">5.2 chars/token · 83% whole-word · trained on 1.55M docs across 10 collections</text>
+  <text x="400" y="32" text-anchor="middle" class="title">Mean Fertility Comparison</text>
+  <text x="400" y="50" text-anchor="middle" class="sub">Evaluated on 47,934 Azerbaijani documents (lower is better)</text>
 
-  <!-- Chart area: x = 200..680, y = 80..300 -->
-  <!-- 5 bars, each row 44px tall -->
-  <!-- x scale: 0 → 200, 4.0 → 680 (480 px range, scale 120 px per unit) -->
+  <!-- Chart area: x = 240..760, y = 80..400 -->
+  <!-- Scale: 0 → 240, 3.0 → 760 (520 px range, ~173 px per unit) -->
 
-  <!-- Grid lines at 1, 2, 3, 4 -->
-  <line x1="320" y1="78" x2="320" y2="304" class="grid"/>
-  <line x1="440" y1="78" x2="440" y2="304" class="grid"/>
-  <line x1="560" y1="78" x2="560" y2="304" class="grid"/>
-  <line x1="680" y1="78" x2="680" y2="304" class="grid"/>
+  <!-- Grid lines -->
+  <line x1="240" y1="78" x2="240" y2="400" class="axis"/>
+  <line x1="413" y1="78" x2="413" y2="400" class="grid"/>
+  <line x1="586" y1="78" x2="586" y2="400" class="grid"/>
+  <line x1="759" y1="78" x2="759" y2="400" class="grid"/>
 
-  <!-- Y axis -->
-  <line x1="200" y1="78" x2="200" y2="304" class="axis"/>
   <!-- X axis -->
-  <line x1="200" y1="304" x2="680" y2="304" class="axis"/>
+  <line x1="240" y1="400" x2="760" y2="400" class="axis"/>
 
-  <!-- Tick labels -->
-  <text x="200" y="322" text-anchor="middle" class="tick">0</text>
-  <text x="320" y="322" text-anchor="middle" class="tick">1.0</text>
-  <text x="440" y="322" text-anchor="middle" class="tick">2.0</text>
-  <text x="560" y="322" text-anchor="middle" class="tick">3.0</text>
-  <text x="680" y="322" text-anchor="middle" class="tick">4.0</text>
-  <text x="440" y="343" text-anchor="middle" class="sub">subword pieces per word</text>
+  <!-- Tick labels and grid -->
+  <text x="240" y="422" text-anchor="middle" class="tick">0</text>
+  <text x="413" y="422" text-anchor="middle" class="tick">1.0</text>
+  <text x="586" y="422" text-anchor="middle" class="tick">2.0</text>
+  <text x="759" y="422" text-anchor="middle" class="tick">3.0</text>
+  <text x="500" y="445" text-anchor="middle" class="sub">Mean fertility (subword pieces per word)</text>
 
-  <!-- Threshold marker at 2.5 -->
-  <line x1="500" y1="78" x2="500" y2="304" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7"/>
-  <text x="500" y="74" text-anchor="middle" class="annot" fill="#ef4444">threshold 2.5</text>
+  <!-- Threshold marker at 2.5 fertility (~673 px) -->
+  <line x1="673" y1="78" x2="673" y2="400" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.6"/>
+  <text x="673" y="72" text-anchor="middle" class="annot">threshold 2.5</text>
 
-  <!-- Bars: each bar is 28 high, 12 padding -->
-  <!-- 1.67 ours -->
-  <rect x="200" y="86" width="200.4" height="28" fill="#22c55e" rx="3"/>
-  <text x="195" y="105" text-anchor="end" class="label">Ours (WordPiece)</text>
-  <text x="408" y="105" class="value">1.67 ✓</text>
+  <!-- ===== BARS (spacing: 48px between centers, first at y=110) ===== -->
 
-  <!-- 2.00 HPLT -->
-  <rect x="200" y="130" width="240" height="28" fill="#4a9eed" rx="3"/>
-  <text x="195" y="149" text-anchor="end" class="label">HPLT az-BERT</text>
-  <text x="448" y="149" class="value">2.00</text>
+  <!-- 1. wp_2_uncased (SELECTED) - 1.727 fertility -->
+  <!-- Width: 1.727 * 173.33 = 299 px -->
+  <rect x="240" y="100" width="299" height="36" class="bar-selected" rx="4"/>
+  <text x="235" y="123" text-anchor="end" class="label">wp_2_uncased ★</text>
+  <text x="550" y="123" class="value">1.727</text>
 
-  <!-- 2.14 Competitor C -->
-  <rect x="200" y="174" width="256.8" height="28" fill="#06b6d4" rx="3"/>
-  <text x="195" y="193" text-anchor="end" class="label">Competitor C</text>
-  <text x="464" y="193" class="value">2.14</text>
+  <!-- 2. wp_1_uncased - 1.756 fertility -->
+  <rect x="240" y="154" width="304" height="36" class="bar-wp" rx="4"/>
+  <text x="235" y="177" text-anchor="end" class="label">wp_1_uncased</text>
+  <text x="560" y="177" class="value">1.756</text>
 
-  <!-- 2.51 Competitor B -->
-  <rect x="200" y="218" width="301.2" height="28" fill="#f59e0b" rx="3"/>
-  <text x="195" y="237" text-anchor="end" class="label">Competitor B</text>
-  <text x="509" y="237" class="value">2.51 ✗</text>
+  <!-- 3. spm_files_2_uncased - 1.838 fertility -->
+  <rect x="240" y="208" width="318" height="36" class="bar-spm" rx="4"/>
+  <text x="235" y="231" text-anchor="end" class="label">SPM Unigram</text>
+  <text x="575" y="231" class="value">1.838</text>
 
-  <!-- 3.70 mBERT -->
-  <rect x="200" y="262" width="444" height="28" fill="#ef4444" rx="3"/>
-  <text x="195" y="281" text-anchor="end" class="label">mBERT</text>
-  <text x="652" y="281" class="value">3.70 ✗</text>
+  <!-- 4. HPLT - 2.068 fertility -->
+  <rect x="240" y="262" width="358" height="36" class="bar-hplt" rx="4"/>
+  <text x="235" y="285" text-anchor="end" class="label">HPLT az-BERT</text>
+  <text x="610" y="285" class="value">2.068</text>
+
+  <!-- 5. XLM-RoBERTa - 2.167 fertility -->
+  <rect x="240" y="316" width="375" height="36" class="bar-xlmr" rx="4"/>
+  <text x="235" y="339" text-anchor="end" class="label">XLM-RoBERTa</text>
+  <text x="625" y="339" class="value">2.167</text>
+
+  <!-- 6. mBERT - 2.846 fertility -->
+  <rect x="240" y="370" width="493" height="36" class="bar-mbert" rx="4"/>
+  <text x="235" y="393" text-anchor="end" class="label">mBERT</text>
+  <text x="750" y="393" class="value">2.846</text>
+
+  <!-- Legend / Notes -->
+  <text x="50" y="445" font-size="10" fill="#475569">
+    ★ = Selected for AzBERT pretraining | WordPiece outperforms SPM variants and all baselines
+  </text>
 </svg>
