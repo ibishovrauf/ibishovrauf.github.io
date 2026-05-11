@@ -1,108 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Segoe UI, Roboto, -apple-system, sans-serif">
   <defs>
     <style>
-      .axis { stroke: #94a3b8; stroke-width: 1.5; }
-      .grid { stroke: #cbd5e1; stroke-width: 0.8; stroke-dasharray: 4 4; }
-      .tick { font-size: 11px; fill: #475569; }
-      .label { font-size: 12px; fill: #0f172a; font-weight: 600; }
-      .value { font-size: 13px; fill: #0f172a; font-weight: 700; }
-      .title { font-size: 17px; fill: #0f172a; font-weight: 700; }
-      .sub { font-size: 12px; fill: #475569; }
-      .annot { font-size: 10px; fill: #8b5cf6; font-style: italic; font-weight: 500; }
+      /* Light mode (default) */
+      .title { font-size: 22px; font-weight: 700; fill: #0d1117; }
+      .subtitle { font-size: 13px; fill: #57606a; }
+      .label { font-size: 13px; font-weight: 600; fill: #0d1117; }
+      .value { font-size: 14px; font-weight: 700; fill: #0d1117; }
+      .tick { font-size: 11px; fill: #57606a; }
+      .annot { font-size: 11px; fill: #8b5cf6; font-weight: 600; }
 
+      /* Dark mode */
       @media (prefers-color-scheme: dark) {
-        .axis { stroke: #64748b; }
-        .grid { stroke: #334155; }
-        .label, .value, .title { fill: #e2e8f0; }
-        .tick, .sub { fill: #94a3b8; }
-        .annot { fill: #c4b5fd; }
+        .title { fill: #e6edf3; }
+        .subtitle, .label { fill: #8b949e; }
+        .value { fill: #e6edf3; }
+        .tick { fill: #6e7681; }
+        .annot { fill: #d2a8ff; }
       }
 
-      /* Bar colors with dark mode variants */
-      .bar-selected { fill: #22c55e; }
-      .bar-wp { fill: #60a5fa; }
-      .bar-spm { fill: #fbbf24; }
-      .bar-hplt { fill: #34d399; }
-      .bar-xlmr { fill: #f87171; }
-      .bar-mbert { fill: #ef4444; }
+      /* Bars - light mode */
+      .bar-selected { fill: #10b981; }
+      .bar-wp { fill: #3b82f6; }
+      .bar-spm { fill: #f59e0b; }
+      .bar-hplt { fill: #06b6d4; }
+      .bar-xlmr { fill: #ef4444; }
+      .bar-mbert { fill: #dc2626; }
 
+      /* Bars - dark mode */
       @media (prefers-color-scheme: dark) {
-        .bar-selected { fill: #10b981; }
-        .bar-wp { fill: #3b82f6; }
-        .bar-spm { fill: #f59e0b; }
-        .bar-hplt { fill: #10b981; }
+        .bar-selected { fill: #34d399; }
+        .bar-wp { fill: #60a5fa; }
+        .bar-spm { fill: #fbbf24; }
+        .bar-hplt { fill: #22d3ee; }
         .bar-xlmr { fill: #f87171; }
-        .bar-mbert { fill: #dc2626; }
+        .bar-mbert { fill: #ef5350; }
+      }
+
+      /* Grid & axes */
+      .grid { stroke: #d0d7de; stroke-width: 1; stroke-dasharray: 4 4; }
+      .axis { stroke: #57606a; stroke-width: 1.5; }
+      @media (prefers-color-scheme: dark) {
+        .grid { stroke: #30363d; }
+        .axis { stroke: #6e7681; }
       }
     </style>
-
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
-    </marker>
   </defs>
 
   <!-- Title -->
-  <text x="400" y="32" text-anchor="middle" class="title">Mean Fertility Comparison</text>
-  <text x="400" y="50" text-anchor="middle" class="sub">Evaluated on 47,934 Azerbaijani documents (lower is better)</text>
+  <text x="500" y="35" text-anchor="middle" class="title">Mean Fertility Comparison</text>
+  <text x="500" y="55" text-anchor="middle" class="subtitle">Evaluated on 47,934 Azerbaijani documents (lower = better)</text>
 
-  <!-- Chart area: x = 240..760, y = 80..400 -->
-  <!-- Scale: 0 → 240, 3.0 → 760 (520 px range, ~173 px per unit) -->
+  <!-- Chart area: x=280..920, y=80..420 -->
+  <!-- Scale: 0→280, 3.0→920 (640px / 3.0 = 213.33 px/unit) -->
 
   <!-- Grid lines -->
-  <line x1="240" y1="78" x2="240" y2="400" class="axis"/>
-  <line x1="413" y1="78" x2="413" y2="400" class="grid"/>
-  <line x1="586" y1="78" x2="586" y2="400" class="grid"/>
-  <line x1="759" y1="78" x2="759" y2="400" class="grid"/>
+  <line x1="280" y1="80" x2="280" y2="420" class="axis"/>
+  <line x1="500" y1="80" x2="500" y2="420" class="grid"/>
+  <line x1="720" y1="80" x2="720" y2="420" class="grid"/>
+  <line x1="920" y1="80" x2="920" y2="420" class="grid"/>
 
   <!-- X axis -->
-  <line x1="240" y1="400" x2="760" y2="400" class="axis"/>
+  <line x1="280" y1="420" x2="920" y2="420" class="axis"/>
 
-  <!-- Tick labels and grid -->
-  <text x="240" y="422" text-anchor="middle" class="tick">0</text>
-  <text x="413" y="422" text-anchor="middle" class="tick">1.0</text>
-  <text x="586" y="422" text-anchor="middle" class="tick">2.0</text>
-  <text x="759" y="422" text-anchor="middle" class="tick">3.0</text>
-  <text x="500" y="445" text-anchor="middle" class="sub">Mean fertility (subword pieces per word)</text>
+  <!-- Threshold marker at 2.5 (640px) -->
+  <line x1="813" y1="80" x2="813" y2="420" stroke="#a855f7" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
+  <text x="813" y="70" text-anchor="middle" class="annot">threshold 2.5</text>
 
-  <!-- Threshold marker at 2.5 fertility (~673 px) -->
-  <line x1="673" y1="78" x2="673" y2="400" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.6"/>
-  <text x="673" y="72" text-anchor="middle" class="annot">threshold 2.5</text>
+  <!-- Tick labels -->
+  <text x="280" y="445" text-anchor="middle" class="tick">0</text>
+  <text x="500" y="445" text-anchor="middle" class="tick">1.0</text>
+  <text x="720" y="445" text-anchor="middle" class="tick">2.0</text>
+  <text x="920" y="445" text-anchor="middle" class="tick">3.0</text>
+  <text x="600" y="475" text-anchor="middle" class="subtitle">Mean fertility (subword pieces per word)</text>
 
-  <!-- ===== BARS (spacing: 48px between centers, first at y=110) ===== -->
+  <!-- Bar 1: wp_2_uncased (selected) - 1.727 -->
+  <!-- Width: 1.727 * 213.33 = 368 px -->
+  <rect x="280" y="105" width="368" height="40" class="bar-selected" rx="4"/>
+  <text x="275" y="130" text-anchor="end" class="label">wp_2_uncased ★</text>
+  <text x="660" y="130" class="value">1.727</text>
 
-  <!-- 1. wp_2_uncased (SELECTED) - 1.727 fertility -->
-  <!-- Width: 1.727 * 173.33 = 299 px -->
-  <rect x="240" y="100" width="299" height="36" class="bar-selected" rx="4"/>
-  <text x="235" y="123" text-anchor="end" class="label">wp_2_uncased ★</text>
-  <text x="550" y="123" class="value">1.727</text>
+  <!-- Bar 2: wp_1_uncased - 1.756 -->
+  <!-- Width: 1.756 * 213.33 = 374 px -->
+  <rect x="280" y="160" width="374" height="40" class="bar-wp" rx="4"/>
+  <text x="275" y="185" text-anchor="end" class="label">wp_1_uncased</text>
+  <text x="670" y="185" class="value">1.756</text>
 
-  <!-- 2. wp_1_uncased - 1.756 fertility -->
-  <rect x="240" y="154" width="304" height="36" class="bar-wp" rx="4"/>
-  <text x="235" y="177" text-anchor="end" class="label">wp_1_uncased</text>
-  <text x="560" y="177" class="value">1.756</text>
+  <!-- Bar 3: SPM Unigram - 1.838 -->
+  <!-- Width: 1.838 * 213.33 = 391 px -->
+  <rect x="280" y="215" width="391" height="40" class="bar-spm" rx="4"/>
+  <text x="275" y="240" text-anchor="end" class="label">SPM Unigram</text>
+  <text x="685" y="240" class="value">1.838</text>
 
-  <!-- 3. spm_files_2_uncased - 1.838 fertility -->
-  <rect x="240" y="208" width="318" height="36" class="bar-spm" rx="4"/>
-  <text x="235" y="231" text-anchor="end" class="label">SPM Unigram</text>
-  <text x="575" y="231" class="value">1.838</text>
+  <!-- Bar 4: HPLT - 2.068 -->
+  <!-- Width: 2.068 * 213.33 = 441 px -->
+  <rect x="280" y="270" width="441" height="40" class="bar-hplt" rx="4"/>
+  <text x="275" y="295" text-anchor="end" class="label">HPLT az-BERT</text>
+  <text x="735" y="295" class="value">2.068</text>
 
-  <!-- 4. HPLT - 2.068 fertility -->
-  <rect x="240" y="262" width="358" height="36" class="bar-hplt" rx="4"/>
-  <text x="235" y="285" text-anchor="end" class="label">HPLT az-BERT</text>
-  <text x="610" y="285" class="value">2.068</text>
+  <!-- Bar 5: XLM-RoBERTa - 2.167 -->
+  <!-- Width: 2.167 * 213.33 = 462 px -->
+  <rect x="280" y="325" width="462" height="40" class="bar-xlmr" rx="4"/>
+  <text x="275" y="350" text-anchor="end" class="label">XLM-RoBERTa</text>
+  <text x="756" y="350" class="value">2.167</text>
 
-  <!-- 5. XLM-RoBERTa - 2.167 fertility -->
-  <rect x="240" y="316" width="375" height="36" class="bar-xlmr" rx="4"/>
-  <text x="235" y="339" text-anchor="end" class="label">XLM-RoBERTa</text>
-  <text x="625" y="339" class="value">2.167</text>
+  <!-- Bar 6: mBERT - 2.846 -->
+  <!-- Width: 2.846 * 213.33 = 607 px -->
+  <rect x="280" y="380" width="607" height="40" class="bar-mbert" rx="4"/>
+  <text x="275" y="405" text-anchor="end" class="label">mBERT</text>
+  <text x="901" y="405" class="value">2.846</text>
 
-  <!-- 6. mBERT - 2.846 fertility -->
-  <rect x="240" y="370" width="493" height="36" class="bar-mbert" rx="4"/>
-  <text x="235" y="393" text-anchor="end" class="label">mBERT</text>
-  <text x="750" y="393" class="value">2.846</text>
-
-  <!-- Legend / Notes -->
-  <text x="50" y="445" font-size="10" fill="#475569">
-    ★ = Selected for AzBERT pretraining | WordPiece outperforms SPM variants and all baselines
+  <!-- Legend -->
+  <text x="50" y="480" font-size="11" fill="#57606a">
+    ★ = Selected for AzBERT pretraining | WordPiece achieves 39% better fertility than mBERT
   </text>
 </svg>

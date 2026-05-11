@@ -1,162 +1,166 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 450" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 550" font-family="Segoe UI, Roboto, -apple-system, sans-serif">
   <defs>
     <style>
-      :root { --bg-light: #ffffff; --text-dark: #0f172a; --text-muted: #475569; }
+      :root { --light-bg: #f8f9fa; --dark-bg: #1a1a1a; }
+
+      /* Light mode (default) */
+      .bg-light { background: white; }
+      .title { font-size: 24px; font-weight: 700; fill: #0d1117; }
+      .subtitle { font-size: 13px; fill: #57606a; }
+      .box-text { font-size: 14px; font-weight: 600; fill: #0d1117; }
+      .box-detail { font-size: 12px; fill: #57606a; }
+
+      /* Dark mode */
       @media (prefers-color-scheme: dark) {
-        :root { --bg-light: #1e293b; --text-dark: #e2e8f0; --text-muted: #94a3b8; }
+        .title { fill: #e6edf3; }
+        .subtitle, .box-detail { fill: #8b949e; }
+        .box-text { fill: #e6edf3; }
       }
 
-      .box-blue { fill: #dbe4ff; stroke: #4a9eed; }
-      .box-yellow { fill: #fff3bf; stroke: #f59e0b; }
-      .box-green { fill: #d3f9d8; stroke: #22c55e; }
-      .box-purple { fill: #eebefa; stroke: #8b5cf6; }
-      .box-lightblue { fill: #a5d8ff; stroke: #4a9eed; }
+      /* Box colors - light mode */
+      .box-blue { fill: #cffafe; stroke: #06b6d4; }
+      .box-yellow { fill: #fef3c7; stroke: #f59e0b; }
+      .box-green { fill: #d1fae5; stroke: #10b981; }
+      .box-purple { fill: #e9d5ff; stroke: #a855f7; }
+      .box-cyan { fill: #cffafe; stroke: #06b6d4; }
 
+      /* Box colors - dark mode */
       @media (prefers-color-scheme: dark) {
-        .box-blue { fill: #1e3a8a; stroke: #60a5fa; }
-        .box-yellow { fill: #7c2d12; stroke: #f59e0b; }
-        .box-green { fill: #064e3b; stroke: #10b981; }
-        .box-purple { fill: #581c87; stroke: #a78bfa; }
-        .box-lightblue { fill: #0c4a6e; stroke: #60a5fa; }
+        .box-blue { fill: #0d47a1; stroke: #42a5f5; }
+        .box-yellow { fill: #bf360c; stroke: #ff9800; }
+        .box-green { fill: #1b5e20; stroke: #66bb6a; }
+        .box-purple { fill: #4a148c; stroke: #ce93d8; }
+        .box-cyan { fill: #006064; stroke: #4dd0e1; }
       }
 
-      .title { font-size: 16px; font-weight: 700; fill: #0f172a; }
-      .label { font-size: 13px; font-weight: 600; fill: #0f172a; }
-      .sub { font-size: 11px; fill: #475569; }
-
+      .line { stroke: #57606a; stroke-width: 2; fill: none; }
       @media (prefers-color-scheme: dark) {
-        .title, .label { fill: #e2e8f0; }
-        .sub { fill: #94a3b8; }
+        .line { stroke: #30363d; }
       }
 
-      .line { stroke: #475569; stroke-width: 2; fill: none; }
+      .arrow { stroke: #57606a; stroke-width: 2.5; fill: none; }
       @media (prefers-color-scheme: dark) {
-        .line { stroke: #64748b; }
-      }
-
-      .arrow-marker { fill: #475569; }
-      @media (prefers-color-scheme: dark) {
-        .arrow-marker { fill: #64748b; }
+        .arrow { stroke: #8b949e; }
       }
     </style>
 
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" class="arrow-marker"/>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#57606a"/>
+    </marker>
+    <marker id="arrowhead-dark" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8b949e"/>
     </marker>
   </defs>
 
   <!-- Title -->
-  <text x="550" y="30" text-anchor="middle" class="title">Tokenizer Training Pipeline</text>
-  <text x="550" y="48" text-anchor="middle" class="sub">MongoDB streaming · multiprocessing · bulk_write</text>
+  <text x="600" y="35" text-anchor="middle" class="title">Tokenizer Training Pipeline</text>
+  <text x="600" y="55" text-anchor="middle" class="subtitle">MongoDB streaming • multiprocessing • bulk_write</text>
 
-  <!-- ==== PREPROCESSING ROW ==== -->
-  <!-- Box 1: Raw Corpus -->
-  <rect x="20" y="80" width="130" height="100" rx="8" class="box-blue" stroke-width="2"/>
-  <text x="85" y="115" text-anchor="middle" class="label">Raw Corpus</text>
-  <text x="85" y="135" text-anchor="middle" class="sub">~100–150 GB</text>
-  <text x="85" y="150" text-anchor="middle" class="sub">10 collections</text>
-  <text x="85" y="165" text-anchor="middle" class="sub">95.7B chars</text>
+  <!-- PREPROCESSING STAGE -->
+  <!-- Raw Corpus -->
+  <rect x="30" y="90" width="140" height="120" rx="8" class="box-blue" stroke-width="2"/>
+  <text x="100" y="130" text-anchor="middle" class="box-text">Raw Corpus</text>
+  <text x="100" y="150" text-anchor="middle" class="box-detail">~100–150 GB</text>
+  <text x="100" y="165" text-anchor="middle" class="box-detail">10 collections</text>
+  <text x="100" y="180" text-anchor="middle" class="box-detail">95.7B chars</text>
 
-  <!-- Arrow -->
-  <line x1="150" y1="130" x2="175" y2="130" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrow 1 -->
+  <line x1="170" y1="150" x2="210" y2="150" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- Box 2: Entity Sanitization -->
-  <rect x="175" y="80" width="130" height="100" rx="8" class="box-yellow" stroke-width="2"/>
-  <text x="240" y="110" text-anchor="middle" class="label">Entity</text>
-  <text x="240" y="125" text-anchor="middle" class="label">Sanitization</text>
-  <text x="240" y="145" text-anchor="middle" class="sub">URL → [URL]</text>
-  <text x="240" y="160" text-anchor="middle" class="sub">EMAIL · PHONE</text>
+  <!-- Entity Sanitization -->
+  <rect x="210" y="90" width="140" height="120" rx="8" class="box-yellow" stroke-width="2"/>
+  <text x="280" y="125" text-anchor="middle" class="box-text">Entity</text>
+  <text x="280" y="143" text-anchor="middle" class="box-text">Sanitization</text>
+  <text x="280" y="163" text-anchor="middle" class="box-detail">URL → [URL]</text>
+  <text x="280" y="177" text-anchor="middle" class="box-detail">EMAIL, PHONE</text>
 
-  <!-- Arrow -->
-  <line x1="305" y1="130" x2="330" y2="130" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrow 2 -->
+  <line x1="350" y1="150" x2="390" y2="150" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- Box 3: Emoji Normalization -->
-  <rect x="330" y="80" width="130" height="100" rx="8" class="box-yellow" stroke-width="2"/>
-  <text x="395" y="110" text-anchor="middle" class="label">Emoji</text>
-  <text x="395" y="125" text-anchor="middle" class="label">Normalization</text>
-  <text x="395" y="145" text-anchor="middle" class="sub">all → [EMOJI]</text>
-  <text x="395" y="160" text-anchor="middle" class="sub">−0.215 fertility</text>
+  <!-- Emoji Normalization -->
+  <rect x="390" y="90" width="140" height="120" rx="8" class="box-yellow" stroke-width="2"/>
+  <text x="460" y="125" text-anchor="middle" class="box-text">Emoji</text>
+  <text x="460" y="143" text-anchor="middle" class="box-text">Normalization</text>
+  <text x="460" y="163" text-anchor="middle" class="box-detail">all → [EMOJI]</text>
+  <text x="460" y="177" text-anchor="middle" class="box-detail">−0.215 fertility</text>
 
-  <!-- Arrow -->
-  <line x1="460" y1="130" x2="485" y2="130" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrow 3 -->
+  <line x1="530" y1="150" x2="570" y2="150" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- Box 4: Punctuation Normalization -->
-  <rect x="485" y="80" width="130" height="100" rx="8" class="box-yellow" stroke-width="2"/>
-  <text x="550" y="110" text-anchor="middle" class="label">Punctuation</text>
-  <text x="550" y="125" text-anchor="middle" class="label">Normalization</text>
-  <text x="550" y="145" text-anchor="middle" class="sub">"smart" → ASCII</text>
-  <text x="550" y="160" text-anchor="middle" class="sub">NFKC ready</text>
+  <!-- Punctuation Normalization -->
+  <rect x="570" y="90" width="140" height="120" rx="8" class="box-yellow" stroke-width="2"/>
+  <text x="640" y="125" text-anchor="middle" class="box-text">Punctuation</text>
+  <text x="640" y="143" text-anchor="middle" class="box-text">Normalization</text>
+  <text x="640" y="163" text-anchor="middle" class="box-detail">"smart" → ASCII</text>
+  <text x="640" y="177" text-anchor="middle" class="box-detail">NFKC ready</text>
 
-  <!-- Arrow -->
-  <line x1="615" y1="130" x2="640" y2="130" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrow 4 -->
+  <line x1="710" y1="150" x2="750" y2="150" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- Box 5: Character Statistics -->
-  <rect x="640" y="80" width="140" height="100" rx="8" class="box-green" stroke-width="2"/>
-  <text x="710" y="115" text-anchor="middle" class="label">Character</text>
-  <text x="710" y="130" text-anchor="middle" class="label">Statistics</text>
-  <text x="710" y="150" text-anchor="middle" class="sub">char_stats.json</text>
-  <text x="710" y="165" text-anchor="middle" class="sub">drives alphabet</text>
+  <!-- Character Statistics -->
+  <rect x="750" y="90" width="140" height="120" rx="8" class="box-green" stroke-width="2"/>
+  <text x="820" y="125" text-anchor="middle" class="box-text">Character</text>
+  <text x="820" y="143" text-anchor="middle" class="box-text">Statistics</text>
+  <text x="820" y="163" text-anchor="middle" class="box-detail">char_stats.json</text>
+  <text x="820" y="177" text-anchor="middle" class="box-detail">drives alphabet</text>
 
-  <!-- Arrow down to sampling/training -->
-  <path d="M 710 180 L 710 220" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrow down -->
+  <path d="M 820 210 L 820 250" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- ==== SAMPLING & TRAINING ROW ==== -->
-  <!-- Box: Sampling -->
-  <rect x="200" y="230" width="150" height="90" rx="8" class="box-purple" stroke-width="2"/>
-  <text x="275" y="258" text-anchor="middle" class="label">Sampling</text>
-  <text x="275" y="276" text-anchor="middle" class="sub">per-collection rates</text>
-  <text x="275" y="290" text-anchor="middle" class="sub">1.55M docs</text>
+  <!-- Sampling -->
+  <rect x="710" y="250" width="220" height="110" rx="8" class="box-purple" stroke-width="2"/>
+  <text x="820" y="285" text-anchor="middle" class="box-text">Sampling</text>
+  <text x="820" y="305" text-anchor="middle" class="box-detail">per-collection rates</text>
+  <text x="820" y="320" text-anchor="middle" class="box-detail">1.55M documents</text>
 
-  <!-- Arrow from char stats to sampling -->
-  <path d="M 710 220 L 380 250 L 350 250" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrow from character stats to sampling -->
+  <path d="M 750 250 Q 600 300 710 305" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- ==== ALGORITHM TRAINING ROW ==== -->
+  <!-- TRAINING STAGE -->
   <!-- SPM Unigram -->
-  <rect x="50" y="340" width="130" height="90" rx="8" class="box-yellow" stroke-width="2"/>
-  <text x="115" y="365" text-anchor="middle" class="label">SPM Unigram</text>
-  <text x="115" y="382" text-anchor="middle" class="sub">Cased + Uncased</text>
-  <text x="115" y="397" text-anchor="middle" class="sub">1.838–1.932</text>
+  <rect x="60" y="400" width="150" height="110" rx="8" class="box-yellow" stroke-width="2"/>
+  <text x="135" y="430" text-anchor="middle" class="box-text">SPM Unigram</text>
+  <text x="135" y="450" text-anchor="middle" class="box-detail">Cased + Uncased</text>
+  <text x="135" y="470" text-anchor="middle" class="box-detail">1.838–1.932</text>
 
   <!-- SPM BPE -->
-  <rect x="230" y="340" width="130" height="90" rx="8" class="box-yellow" stroke-width="2"/>
-  <text x="295" y="365" text-anchor="middle" class="label">SPM BPE</text>
-  <text x="295" y="382" text-anchor="middle" class="sub">Cased + Uncased</text>
-  <text x="295" y="397" text-anchor="middle" class="sub">1.845–1.932</text>
+  <rect x="270" y="400" width="150" height="110" rx="8" class="box-yellow" stroke-width="2"/>
+  <text x="345" y="430" text-anchor="middle" class="box-text">SPM BPE</text>
+  <text x="345" y="450" text-anchor="middle" class="box-detail">Cased + Uncased</text>
+  <text x="345" y="470" text-anchor="middle" class="box-detail">1.845–1.932</text>
 
   <!-- WordPiece -->
-  <rect x="410" y="340" width="130" height="90" rx="8" class="box-lightblue" stroke-width="2"/>
-  <text x="475" y="365" text-anchor="middle" class="label">WordPiece</text>
-  <text x="475" y="382" text-anchor="middle" class="sub">Cased + Uncased</text>
-  <text x="475" y="397" text-anchor="middle" class="sub">1.727–1.833</text>
+  <rect x="480" y="400" width="150" height="110" rx="8" class="box-cyan" stroke-width="2"/>
+  <text x="555" y="430" text-anchor="middle" class="box-text">WordPiece</text>
+  <text x="555" y="450" text-anchor="middle" class="box-detail">Cased + Uncased</text>
+  <text x="555" y="470" text-anchor="middle" class="box-detail">1.727–1.833</text>
 
-  <!-- Arrow from sampling to algorithms -->
-  <path d="M 275 320 L 115 340" class="line" marker-end="url(#arrow)"/>
-  <path d="M 275 320 L 295 340" class="line" marker-end="url(#arrow)"/>
-  <path d="M 275 320 L 475 340" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrows from sampling to algorithms -->
+  <path d="M 760 360 L 135 400" class="arrow" marker-end="url(#arrowhead)"/>
+  <path d="M 800 360 L 345 400" class="arrow" marker-end="url(#arrowhead)"/>
+  <path d="M 840 360 L 555 400" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- ==== EVALUATION & SELECTION ==== -->
-  <!-- Evaluation box -->
-  <rect x="650" y="340" width="160" height="90" rx="8" class="box-green" stroke-width="2"/>
-  <text x="730" y="360" text-anchor="middle" class="label">Evaluation &amp;</text>
-  <text x="730" y="375" text-anchor="middle" class="label">Selection</text>
-  <text x="730" y="393" text-anchor="middle" class="sub">47,934 test samples</text>
-  <text x="730" y="408" text-anchor="middle" class="sub">→ wp_2_uncased</text>
+  <!-- Evaluation & Selection -->
+  <rect x="720" y="400" width="180" height="110" rx="8" class="box-green" stroke-width="2"/>
+  <text x="810" y="425" text-anchor="middle" class="box-text">Evaluation &</text>
+  <text x="810" y="443" text-anchor="middle" class="box-text">Selection</text>
+  <text x="810" y="465" text-anchor="middle" class="box-detail">47,934 samples</text>
+  <text x="810" y="480" text-anchor="middle" class="box-detail">→ wp_2_uncased</text>
 
-  <!-- Arrows from algorithms to evaluation -->
-  <line x1="180" y1="385" x2="650" y2="385" class="line" marker-end="url(#arrow)"/>
+  <!-- Arrow from algorithms to evaluation -->
+  <line x1="630" y1="455" x2="720" y2="455" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- ==== FINAL SELECTION BOX ==== -->
-  <!-- Selected tokenizer (highlighted) -->
-  <rect x="900" y="330" width="150" height="110" rx="8" class="box-lightblue" stroke-width="3"/>
-  <text x="975" y="355" text-anchor="middle" class="label" font-weight="700">✓ Selected</text>
-  <text x="975" y="372" text-anchor="middle" class="label">WordPiece-uncased</text>
-  <text x="975" y="390" text-anchor="middle" class="sub">Fertility: 1.727</text>
-  <text x="975" y="404" text-anchor="middle" class="sub">Suffix atomicity: 100%</text>
-  <text x="975" y="418" text-anchor="middle" class="sub">UNK rate: 0.0053%</text>
+  <!-- Selected Tokenizer (Highlight) -->
+  <rect x="950" y="385" width="190" height="140" rx="8" class="box-cyan" stroke-width="3"/>
+  <text x="1045" y="415" text-anchor="middle" class="box-text" font-weight="700">✓ Selected</text>
+  <text x="1045" y="435" text-anchor="middle" class="box-text">WordPiece-uncased</text>
+  <text x="1045" y="457" text-anchor="middle" class="box-detail">Fertility: 1.727</text>
+  <text x="1045" y="472" text-anchor="middle" class="box-detail">Suffix atomicity: 100%</text>
+  <text x="1045" y="487" text-anchor="middle" class="box-detail">UNK rate: 0.0053%</text>
 
   <!-- Arrow to selected -->
-  <path d="M 810 385 L 900 385" class="line" marker-end="url(#arrow)"/>
+  <path d="M 900 455 L 950 455" class="arrow" marker-end="url(#arrowhead)"/>
 
-  <!-- Legend / Notes -->
-  <text x="50" y="450" class="sub" font-size="10">All metrics evaluated on 47,934 Azerbaijani documents. WordPiece-uncased selected for AzBERT pretraining.</text>
+  <!-- Footer -->
+  <text x="600" y="535" text-anchor="middle" class="box-detail" font-size="11">All metrics evaluated on 47,934 Azerbaijani documents. WordPiece-uncased selected for AzBERT pretraining.</text>
 </svg>
