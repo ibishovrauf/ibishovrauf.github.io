@@ -361,4 +361,6 @@ Final evaluation of selected tokenizer (`wp_2_uncased`) against established mult
 
 ---
 
+The selected tokenizer is published on Hugging Face: [raufibishov/az-wordpiece-tokenizer](https://huggingface.co/raufibishov/az-wordpiece-tokenizer)
+
 *Component 1 of the AzBERT pretraining pipeline. WordPiece-uncased (fertility 1.727, 100% suffix atomicity) selected and ready for pretraining.*
