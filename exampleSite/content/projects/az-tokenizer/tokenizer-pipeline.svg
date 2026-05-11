@@ -13,7 +13,8 @@
       /* Dark mode */
       @media (prefers-color-scheme: dark) {
         .title { fill: #e6edf3; }
-        .subtitle, .box-detail { fill: #8b949e; }
+        .subtitle { fill: #c9d1d9; }
+        .box-detail { fill: #b1bac4; }
         .box-text { fill: #e6edf3; }
       }
 

@@ -17,6 +17,148 @@ showPagination: true
 showTableOfContents: true
 ---
 
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #ffffff;
+  }
+  
+  .modal.light-mode {
+    background-color: #ffffff;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .modal.dark-mode {
+      background-color: #1a1a1a;
+    }
+  }
+  
+  .modal-content {
+    margin: auto;
+    padding: 40px 20px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    height: auto;
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .modal-close {
+      color: #999;
+    }
+  }
+  
+  .modal-close:hover {
+    color: #000;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .modal-close:hover {
+      color: #fff;
+    }
+  }
+  
+  img.clickable {
+    cursor: zoom-in;
+  }
+</style>
+
+<script>
+  function setupModals() {
+    const modals = document.querySelectorAll('.modal');
+    
+    // Close all modals
+    function closeAllModals() {
+      modals.forEach(modal => {
+        modal.style.display = 'none';
+      });
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Set up each image-modal pair
+    document.getElementById('pipeline-img').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAllModals();
+      const modal = document.getElementById('pipeline-modal');
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      applyTheme(modal);
+    });
+    
+    document.getElementById('fertility-img').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAllModals();
+      const modal = document.getElementById('fertility-modal');
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      applyTheme(modal);
+    });
+    
+    // Set up close buttons and overlay clicks
+    modals.forEach(modal => {
+      const closeBtn = modal.querySelector('.modal-close');
+      const content = modal.querySelector('.modal-content');
+      
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Close on background click, but not on image click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+      
+      // Prevent closing when clicking on the image
+      content.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+  }
+  
+  function applyTheme(modal) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      modal.classList.add('dark-mode');
+      modal.classList.remove('light-mode');
+    } else {
+      modal.classList.add('light-mode');
+      modal.classList.remove('dark-mode');
+    }
+  }
+  
+  // Initialize when DOM is ready
+  document.addEventListener('DOMContentLoaded', setupModals);
+</script>
+
 *Status: **Complete** · WordPiece-uncased (1.727 fertility) selected for AzBERT pretraining · Component 1 of the AzBERT pipeline*
 
 ## TL;DR
@@ -62,7 +204,14 @@ The `folklor` and `e-qanun` collections are included in full — folkloric text 
 
 ## Preprocessing Pipeline
 
-<img src="tokenizer-pipeline.svg" alt="Tokenizer pipeline: corpus ingestion → entity sanitization → emoji normalization → punctuation normalization → character statistics → tokenizer training (3 algorithms × 2 variants) → evaluation & selection" style="max-width:100%;height:auto;" />
+<img id="pipeline-img" src="tokenizer-pipeline.svg" alt="Tokenizer pipeline: corpus ingestion → entity sanitization → emoji normalization → punctuation normalization → character statistics → tokenizer training (3 algorithms × 2 variants) → evaluation & selection" style="max-width:100%;height:auto;" class="clickable" />
+
+<div id="pipeline-modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <div class="modal-content">
+    <img src="tokenizer-pipeline.svg" alt="Tokenizer pipeline (zoomed)" />
+  </div>
+</div>
 
 All scripts follow the same architecture: MongoDB streaming cursor → multiprocessing pool → batch `bulk_write`. No collection is ever loaded into memory.
 
@@ -172,7 +321,14 @@ Final evaluation of selected tokenizer (`wp_2_uncased`) against established mult
 
 ## Selected Tokenizer: WordPiece-uncased (wp_2)
 
-<img src="fertility-comparison.svg" alt="Fertility comparison across algorithms: wp_2_uncased 1.727, wp_1_uncased 1.756, spm_files_2 1.838, HPLT 2.068, XLM-R 2.167, mBERT 2.846" style="max-width:100%;height:auto;" />
+<img id="fertility-img" src="fertility-comparison.svg" alt="Fertility comparison across algorithms: wp_2_uncased 1.727, wp_1_uncased 1.756, spm_files_2 1.838, HPLT 2.068, XLM-R 2.167, mBERT 2.846" style="max-width:100%;height:auto;" class="clickable" />
+
+<div id="fertility-modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <div class="modal-content">
+    <img src="fertility-comparison.svg" alt="Fertility comparison (zoomed)" />
+  </div>
+</div>
 
 **Why WordPiece-uncased was selected for AzBERT pretraining:**
 

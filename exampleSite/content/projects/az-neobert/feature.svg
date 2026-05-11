@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" font-family="Segoe UI, Roboto, -apple-system, sans-serif">
+  <style>
+    .top-label { fill: #475569; }
+    .title     { fill: #0f172a; }
+    .subtitle  { fill: #64748b; }
+    .spec      { fill: #4f46e5; }
+    .tagline   { fill: #64748b; }
+
+    @media (prefers-color-scheme: dark) {
+      .top-label { fill: #8b949e; }
+      .title     { fill: #e6edf3; }
+      .subtitle  { fill: #6e7681; }
+      .spec      { fill: #818cf8; }
+      .tagline   { fill: #8b949e; }
+    }
+  </style>
+
+  <!-- Small top label -->
+  <text x="600" y="105" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" class="top-label">AZERBAIJANI NLP · AZBERT PIPELINE</text>
+
+  <!-- Main title -->
+  <text x="600" y="185" text-anchor="middle" font-size="58" font-weight="700" class="title">AzNEOBERT</text>
+  <text x="600" y="225" text-anchor="middle" font-size="17" class="subtitle">Azerbaijani encoder · pretrained from scratch · 28 layers</text>
+
+  <!-- Architecture innovation pills — 4 modern components -->
+  <!-- Pill 1: RoPE — indigo -->
+  <rect x="241" y="290" width="130" height="120" rx="60" fill="#6366f1"/>
+  <text x="306" y="358" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">RoPE</text>
+
+  <!-- Pill 2: SwiGLU — purple -->
+  <rect x="387" y="290" width="140" height="120" rx="60" fill="#a855f7"/>
+  <text x="457" y="358" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">SwiGLU</text>
+
+  <!-- Pill 3: Pre-RMSNorm — cyan -->
+  <rect x="543" y="290" width="200" height="120" rx="60" fill="#06b6d4"/>
+  <text x="643" y="358" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Pre-RMSNorm</text>
+
+  <!-- Pill 4: Flash Attn 3 — green -->
+  <rect x="759" y="290" width="200" height="120" rx="60" fill="#10b981"/>
+  <text x="859" y="358" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">Flash Attn 3</text>
+
+  <!-- Model spec below -->
+  <text x="600" y="490" text-anchor="middle" font-size="30" font-weight="600" font-style="italic" class="spec">28 layers · 768 hidden · ~160M params</text>
+  <text x="600" y="525" text-anchor="middle" font-size="14" class="tagline">12.2B tokens · 8× NVIDIA H200 · loss 11.1 → 2.35</text>
+
+</svg>

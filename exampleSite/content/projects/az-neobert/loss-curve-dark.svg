@@ -1,46 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
   <style>
-    .title { font-size: 16px; font-weight: 700; fill: #0f172a; }
-    .sub   { font-size: 12px; fill: #475569; }
-    .tick  { font-size: 11px; fill: #475569; }
-    .pt    { font-size: 11px; font-weight: 700; fill: #0f172a; }
-    .ar    { font-size: 11px; fill: #b91c1c; font-style: italic; }
-    .ap    { font-size: 11px; fill: #6d28d9; font-style: italic; }
-    .ag    { font-size: 11px; fill: #475569; font-style: italic; }
-
-    .bg            { fill: #ffffff; }
-    .axis          { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
-    .grid          { stroke: #e2e8f0; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
-    .line-baseline { stroke: #dc2626; stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; opacity: 0.8; }
-    .line-warmup   { stroke: #7c3aed; stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; opacity: 0.8; }
-    .line-loss     { fill: none; stroke: #3b82f6; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-    .dot-start  { fill: #dc2626; }
-    .dot-early  { fill: #f59e0b; }
-    .dot-warmup { fill: #7c3aed; }
-    .dot-final  { fill: #22c55e; }
-
-    @media (prefers-color-scheme: dark) {
-      .title { fill: #f1f5f9; }
-      .sub   { fill: #94a3b8; }
-      .tick  { fill: #94a3b8; }
-      .pt    { fill: #e2e8f0; }
-      .ar    { fill: #fca5a5; }
-      .ap    { fill: #c4b5fd; }
-      .ag    { fill: #94a3b8; }
-      .bg            { fill: #0d1117; }
-      .axis          { stroke: #64748b; }
-      .grid          { stroke: #1e293b; }
-      .line-baseline { stroke: #f87171; }
-      .line-warmup   { stroke: #c4b5fd; }
-      .line-loss     { stroke: #60a5fa; }
-      .dot-start  { fill: #f87171; }
-      .dot-early  { fill: #fcd34d; }
-      .dot-warmup { fill: #c4b5fd; }
-      .dot-final  { fill: #86efac; }
-    }
+    .title { font-size: 16px; font-weight: 700; fill: #f1f5f9; }
+    .sub   { font-size: 12px; fill: #94a3b8; }
+    .tick  { font-size: 11px; fill: #94a3b8; }
+    .pt    { font-size: 11px; font-weight: 700; fill: #e2e8f0; }
+    .ar    { font-size: 11px; fill: #fca5a5; font-style: italic; }
+    .ap    { font-size: 11px; fill: #c4b5fd; font-style: italic; }
+    .ag    { font-size: 11px; fill: #94a3b8; font-style: italic; }
+    .axis  { stroke: #64748b; stroke-width: 1.5; fill: none; }
+    .grid  { stroke: #1e293b; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
   </style>
 
-  <rect x="0" y="0" width="760" height="430" rx="12" class="bg"/>
+  <rect x="0" y="0" width="760" height="430" rx="12" fill="#0d1117"/>
 
   <text x="380" y="30" text-anchor="middle" class="title">AzNEOBERT Training Loss · Phase 1</text>
   <text x="380" y="50" text-anchor="middle" class="sub">8× H200 · global batch 2,304 · seq len 1,024 · bf16 · DeepSpeed ZeRO-2</text>
@@ -73,19 +44,19 @@
   <text x="667" y="362" text-anchor="middle" class="tick" font-size="9">4,131</text>
   <text x="380" y="380" text-anchor="middle" class="sub">optimizer step</text>
 
-  <line x1="80" y1="99" x2="720" y2="99" class="line-baseline"/>
+  <line x1="80" y1="99" x2="720" y2="99" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4 4" fill="none" opacity="0.8"/>
   <text x="718" y="93" text-anchor="end" class="ar">ln(64,000) ≈ 11.07 — random init baseline</text>
 
-  <line x1="429" y1="80" x2="429" y2="330" class="line-warmup"/>
+  <line x1="429" y1="80" x2="429" y2="330" stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="4 4" fill="none" opacity="0.8"/>
   <text x="424" y="76" text-anchor="end" class="ap">warmup complete — step 2,456 · lr = 1×10⁻⁴</text>
 
   <path d="M 80 99 C 96 100, 102 145, 108 164 S 350 230, 429 245 S 600 270, 667 281"
-        class="line-loss"/>
+        fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <circle cx="80"  cy="99"  r="5" class="dot-start"/>
-  <circle cx="108" cy="164" r="5" class="dot-early"/>
-  <circle cx="429" cy="245" r="5" class="dot-warmup"/>
-  <circle cx="667" cy="281" r="5" class="dot-final"/>
+  <circle cx="80"  cy="99"  r="5" fill="#f87171"/>
+  <circle cx="108" cy="164" r="5" fill="#fcd34d"/>
+  <circle cx="429" cy="245" r="5" fill="#c4b5fd"/>
+  <circle cx="667" cy="281" r="5" fill="#86efac"/>
 
   <text x="93"  y="93"  class="pt">11.10</text>
   <text x="121" y="158" class="pt">7.95  (step 200)</text>

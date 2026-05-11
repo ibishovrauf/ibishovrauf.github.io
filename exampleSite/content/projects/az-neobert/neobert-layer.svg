@@ -1,88 +1,122 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
   <defs>
-    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <marker id="arrl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0 0 L10 5 L0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/>
     </marker>
   </defs>
   <style>
-    .lbl { font-size: 13px; fill: #0f172a; font-weight: 600; }
-    .sub { font-size: 11px; fill: #475569; }
-    .title { font-size: 16px; fill: #0f172a; font-weight: 700; }
-    .small { font-size: 11px; fill: #475569; font-style: italic; }
-    .signal { font-size: 11px; fill: #4a9eed; font-weight: 600; }
+    .title   { font-size: 16px; font-weight: 700; fill: #0f172a; }
+    .sub     { font-size: 11px; fill: #475569; }
+    .lbl     { font-size: 13px; font-weight: 600; fill: #0f172a; }
+    .detail  { font-size: 11px; fill: #64748b; }
+    .signal  { font-size: 11px; font-weight: 600; fill: #1d4ed8; }
+    .resid   { font-size: 10px; fill: #3b82f6; font-style: italic; }
+    .add-lbl { font-size: 16px; font-weight: 700; fill: #1d4ed8; }
+
+    .bg        { fill: #ffffff; }
+    .box-norm  { fill: #fef9c3; stroke: #eab308; stroke-width: 2; }
+    .box-attn  { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; }
+    .box-rope  { fill: #f3e8ff; stroke: #a855f7; stroke-width: 2; }
+    .box-flash { fill: #dcfce7; stroke: #22c55e; stroke-width: 2; }
+    .box-ffn   { fill: #fce7f3; stroke: #ec4899; stroke-width: 2; }
+    .add-node  { fill: #ffffff; stroke: #3b82f6; stroke-width: 2; }
+
+    .af   { stroke: #475569; stroke-width: 2;   fill: none; marker-end: url(#arrl); }
+    .ask  { stroke: #3b82f6; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; marker-end: url(#arrl); }
+    .ask0 { stroke: #3b82f6; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+
     @media (prefers-color-scheme: dark) {
-      .lbl, .title { fill: #e2e8f0; }
-      .sub, .small { fill: #94a3b8; }
-      .signal { fill: #60a5fa; }
+      .title   { fill: #f1f5f9; }
+      .sub     { fill: #94a3b8; }
+      .lbl     { fill: #e2e8f0; }
+      .detail  { fill: #94a3b8; }
+      .signal  { fill: #93c5fd; }
+      .resid   { fill: #60a5fa; }
+      .add-lbl { fill: #93c5fd; }
+      .bg        { fill: #0d1117; }
+      .box-norm  { fill: #451a03; stroke: #fbbf24; }
+      .box-attn  { fill: #172554; stroke: #93c5fd; }
+      .box-rope  { fill: #2e1065; stroke: #d8b4fe; }
+      .box-flash { fill: #052e16; stroke: #86efac; }
+      .box-ffn   { fill: #4a044e; stroke: #f9a8d4; }
+      .add-node  { fill: #1e293b; stroke: #93c5fd; }
+      .af   { stroke: #64748b; marker-end: url(#arrd); }
+      .ask  { stroke: #60a5fa; marker-end: url(#arrd); }
+      .ask0 { stroke: #60a5fa; }
     }
   </style>
 
-  <!-- Title -->
-  <text x="360" y="28" text-anchor="middle" class="title">AzNEOBERT transformer layer</text>
-  <text x="360" y="48" text-anchor="middle" class="sub">28 layers · hidden 768 · 12 heads · ~160M params · no bias · no dropout</text>
+  <!-- Background -->
+  <rect x="0" y="0" width="1000" height="580" rx="12" class="bg"/>
 
-  <!-- Input -->
-  <line x1="360" y1="64" x2="360" y2="84" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
-  <text x="370" y="78" class="signal">x (B, S, 768)</text>
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">AzNEOBERT — Transformer Layer</text>
+  <text x="500" y="50" text-anchor="middle" class="sub">28 layers · 768 hidden · 12 heads · head_dim 64 · ~160M params · no bias · no dropout</text>
+
+  <!-- Input arrow + signal label -->
+  <line x1="500" y1="60" x2="500" y2="92" class="af"/>
+  <text x="518" y="80" class="signal">x  (B, S, 768)</text>
+
+  <!-- Residual skip 1 — input curves around to Add 1 -->
+  <path d="M 500 64 Q 70 64 70 392" class="ask0"/>
+  <text x="58" y="230" text-anchor="middle" class="resid" transform="rotate(-90 58 230)">residual 1</text>
 
   <!-- Pre-RMSNorm 1 -->
-  <rect x="240" y="90" width="240" height="44" rx="8" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
-  <text x="360" y="113" text-anchor="middle" class="lbl">Pre-RMSNorm</text>
-  <text x="360" y="128" text-anchor="middle" class="sub">ε = 1e-5 · no mean-centering</text>
+  <rect x="300" y="98" width="400" height="50" rx="8" class="box-norm"/>
+  <text x="500" y="120" text-anchor="middle" class="lbl">Pre-RMSNorm</text>
+  <text x="500" y="138" text-anchor="middle" class="detail">ε = 1e-5 · no mean-centering · replaces LayerNorm</text>
+  <line x1="500" y1="148" x2="500" y2="164" class="af"/>
 
-  <!-- Branch from input around to add 1 -->
-  <path d="M360 75 Q 100 75 100 215" fill="none" stroke="#4a9eed" stroke-width="2" stroke-dasharray="5 4"/>
-  <text x="60" y="155" class="small">residual</text>
+  <!-- Fused QKV Projection -->
+  <rect x="300" y="170" width="400" height="50" rx="8" class="box-attn"/>
+  <text x="500" y="192" text-anchor="middle" class="lbl">Fused QKV Projection</text>
+  <text x="500" y="210" text-anchor="middle" class="detail">768 → 2,304 · single matmul → .chunk(3, dim=-1)</text>
+  <line x1="500" y1="220" x2="500" y2="236" class="af"/>
 
-  <line x1="360" y1="134" x2="360" y2="154" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
-
-  <!-- Fused QKV -->
-  <rect x="240" y="160" width="240" height="44" rx="8" fill="#a5d8ff" stroke="#4a9eed" stroke-width="2"/>
-  <text x="360" y="183" text-anchor="middle" class="lbl">Fused QKV projection</text>
-  <text x="360" y="198" text-anchor="middle" class="sub">single matmul → chunk(3, dim=-1)</text>
-
-  <line x1="360" y1="204" x2="360" y2="224" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
-
-  <!-- RoPE -->
-  <rect x="240" y="230" width="240" height="44" rx="8" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
-  <text x="360" y="253" text-anchor="middle" class="lbl">Rotary Position Embedding</text>
-  <text x="360" y="268" text-anchor="middle" class="sub">apply_rotary_emb(xq, xk, freqs_cis)</text>
-
-  <line x1="360" y1="274" x2="360" y2="294" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
+  <!-- Rotary Position Embedding -->
+  <rect x="300" y="242" width="400" height="50" rx="8" class="box-rope"/>
+  <text x="500" y="264" text-anchor="middle" class="lbl">Rotary Position Embedding (RoPE)</text>
+  <text x="500" y="282" text-anchor="middle" class="detail">apply_rotary_emb(xq, xk, freqs_cis) — no learned params</text>
+  <line x1="500" y1="292" x2="500" y2="308" class="af"/>
 
   <!-- Flash Attention 3 -->
-  <rect x="240" y="300" width="240" height="44" rx="8" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
-  <text x="360" y="323" text-anchor="middle" class="lbl">Flash Attention 3</text>
-  <text x="360" y="338" text-anchor="middle" class="sub">flash_attn_func · dropout = 0</text>
-
-  <line x1="360" y1="344" x2="360" y2="360" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
+  <rect x="300" y="314" width="400" height="50" rx="8" class="box-flash"/>
+  <text x="500" y="336" text-anchor="middle" class="lbl">Flash Attention 3</text>
+  <text x="500" y="354" text-anchor="middle" class="detail">flash_attn_func · causal=False · p_dropout=0 · 12 heads</text>
+  <line x1="500" y1="364" x2="500" y2="379" class="af"/>
 
   <!-- Add 1 -->
-  <circle cx="360" cy="375" r="14" fill="#fff" stroke="#4a9eed" stroke-width="2"/>
-  <text x="360" y="380" text-anchor="middle" class="lbl">+</text>
-  <path d="M100 215 Q 100 375 346 375" fill="none" stroke="#4a9eed" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arr2)"/>
+  <circle cx="500" cy="392" r="14" class="add-node"/>
+  <text x="500" y="398" text-anchor="middle" class="add-lbl">+</text>
+  <!-- Residual 1 horizontal arrival -->
+  <line x1="70" y1="392" x2="486" y2="392" class="ask"/>
 
-  <line x1="360" y1="389" x2="360" y2="405" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="500" y1="406" x2="500" y2="420" class="af"/>
 
-  <!-- residual 2 around FFN -->
-  <path d="M360 395 Q 620 395 620 470" fill="none" stroke="#4a9eed" stroke-width="2" stroke-dasharray="5 4"/>
-  <text x="640" y="445" class="small">residual</text>
+  <!-- Residual skip 2 — Add 1 output curves around to Add 2 -->
+  <path d="M 500 413 Q 900 413 900 500" class="ask"/>
+  <text x="912" y="458" text-anchor="middle" class="resid" transform="rotate(90 912 458)">residual 2</text>
 
   <!-- Pre-RMSNorm 2 -->
-  <rect x="240" y="411" width="240" height="36" rx="8" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
-  <text x="360" y="434" text-anchor="middle" class="lbl">Pre-RMSNorm</text>
-
-  <line x1="360" y1="447" x2="360" y2="463" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
+  <rect x="300" y="426" width="400" height="42" rx="8" class="box-norm"/>
+  <text x="500" y="451" text-anchor="middle" class="lbl">Pre-RMSNorm</text>
+  <line x1="500" y1="468" x2="500" y2="482" class="af"/>
 
   <!-- SwiGLU FFN -->
-  <rect x="240" y="468" width="240" height="44" rx="8" fill="#eebefa" stroke="#ec4899" stroke-width="2"/>
-  <text x="360" y="491" text-anchor="middle" class="lbl">SwiGLU FFN (3,072)</text>
-  <text x="360" y="506" text-anchor="middle" class="sub">gated · 3 weight matrices · no bias</text>
+  <rect x="300" y="488" width="400" height="54" rx="8" class="box-ffn"/>
+  <text x="500" y="510" text-anchor="middle" class="lbl">SwiGLU FFN  (3,072)</text>
+  <text x="500" y="528" text-anchor="middle" class="detail">W_gate × SiLU(W_up(x)) → W_down · 3 matrices · no bias</text>
 
   <!-- Add 2 -->
-  <circle cx="620" cy="490" r="14" fill="#fff" stroke="#4a9eed" stroke-width="2"/>
-  <text x="620" y="495" text-anchor="middle" class="lbl">+</text>
-  <line x1="480" y1="490" x2="606" y2="490" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
-  <line x1="620" y1="504" x2="620" y2="525" stroke="#475569" stroke-width="2" marker-end="url(#arr2)"/>
-  <text x="630" y="520" class="signal">x (B, S, 768)</text>
+  <circle cx="900" cy="514" r="14" class="add-node"/>
+  <text x="900" y="520" text-anchor="middle" class="add-lbl">+</text>
+  <!-- FFN → Add 2 -->
+  <line x1="700" y1="514" x2="886" y2="514" class="af"/>
+
+  <!-- Output -->
+  <line x1="900" y1="528" x2="900" y2="548" class="af"/>
+  <text x="900" y="562" text-anchor="middle" class="signal">x'  (B, S, 768)</text>
 </svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" font-family="Segoe UI, Roboto, -apple-system, sans-serif">
+  <style>
+    .top-label { fill: #475569; }
+    .title     { fill: #0f172a; }
+    .subtitle  { fill: #64748b; }
+    .word      { fill: #d97706; }
+    .tagline   { fill: #64748b; }
+
+    @media (prefers-color-scheme: dark) {
+      .top-label { fill: #8b949e; }
+      .title     { fill: #e6edf3; }
+      .subtitle  { fill: #6e7681; }
+      .word      { fill: #f59e0b; }
+      .tagline   { fill: #8b949e; }
+    }
+  </style>
+
+  <!-- Small top label -->
+  <text x="600" y="105" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="2" class="top-label">AZERBAIJANI NLP · AZBERT PIPELINE</text>
+
+  <!-- Main title -->
+  <text x="600" y="185" text-anchor="middle" font-size="58" font-weight="700" class="title">Azerbaijani Tokenizer</text>
+  <text x="600" y="225" text-anchor="middle" font-size="17" class="subtitle">WordPiece · 64k vocab · selected from 6 variants</text>
+
+  <!-- Token pills — centered group (total width 628px, start x=286) -->
+  <!-- Pill 1: müqavilə — whole-word, green -->
+  <rect x="286" y="290" width="210" height="120" rx="60" fill="#10b981"/>
+  <text x="391" y="360" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">müqavilə</text>
+
+  <!-- Pill 2: ##lər — continuation, amber -->
+  <rect x="512" y="290" width="130" height="120" rx="60" fill="#f59e0b"/>
+  <text x="577" y="360" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">##lər</text>
+
+  <!-- Pill 3: ##in — continuation, amber -->
+  <rect x="658" y="290" width="110" height="120" rx="60" fill="#f59e0b"/>
+  <text x="713" y="360" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">##in</text>
+
+  <!-- Pill 4: ##dən — continuation, amber -->
+  <rect x="784" y="290" width="130" height="120" rx="60" fill="#f59e0b"/>
+  <text x="849" y="360" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">##dən</text>
+
+  <!-- Source word below -->
+  <text x="600" y="490" text-anchor="middle" font-size="30" font-weight="600" font-style="italic" class="word">müqavilələrindən</text>
+  <text x="600" y="525" text-anchor="middle" font-size="14" class="tagline">"from their contracts" · 1 word → 4 tokens · fertility 1.727</text>
+
+</svg>

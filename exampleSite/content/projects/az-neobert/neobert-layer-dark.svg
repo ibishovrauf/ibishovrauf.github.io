@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    .title   { font-size: 16px; font-weight: 700; fill: #f1f5f9; }
+    .sub     { font-size: 11px; fill: #94a3b8; }
+    .lbl     { font-size: 13px; font-weight: 600; fill: #e2e8f0; }
+    .detail  { font-size: 11px; fill: #94a3b8; }
+    .signal  { font-size: 11px; font-weight: 600; fill: #93c5fd; }
+    .resid   { font-size: 10px; fill: #60a5fa; font-style: italic; }
+    .add-lbl { font-size: 16px; font-weight: 700; fill: #93c5fd; }
+    .af   { stroke: #64748b; stroke-width: 2;   fill: none; marker-end: url(#arrd); }
+    .ask  { stroke: #60a5fa; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; marker-end: url(#arrd); }
+    .ask0 { stroke: #60a5fa; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+  </style>
+
+  <rect x="0" y="0" width="1000" height="580" rx="12" fill="#0d1117"/>
+
+  <text x="500" y="30" text-anchor="middle" class="title">AzNEOBERT — Transformer Layer</text>
+  <text x="500" y="50" text-anchor="middle" class="sub">28 layers · 768 hidden · 12 heads · head_dim 64 · ~160M params · no bias · no dropout</text>
+
+  <line x1="500" y1="60" x2="500" y2="92" class="af"/>
+  <text x="518" y="80" class="signal">x  (B, S, 768)</text>
+
+  <path d="M 500 64 Q 70 64 70 392" class="ask0"/>
+  <text x="58" y="230" text-anchor="middle" class="resid" transform="rotate(-90 58 230)">residual 1</text>
+
+  <rect x="300" y="98" width="400" height="50" rx="8" fill="#451a03" stroke="#fbbf24" stroke-width="2"/>
+  <text x="500" y="120" text-anchor="middle" class="lbl">Pre-RMSNorm</text>
+  <text x="500" y="138" text-anchor="middle" class="detail">ε = 1e-5 · no mean-centering · replaces LayerNorm</text>
+  <line x1="500" y1="148" x2="500" y2="164" class="af"/>
+
+  <rect x="300" y="170" width="400" height="50" rx="8" fill="#172554" stroke="#93c5fd" stroke-width="2"/>
+  <text x="500" y="192" text-anchor="middle" class="lbl">Fused QKV Projection</text>
+  <text x="500" y="210" text-anchor="middle" class="detail">768 → 2,304 · single matmul → .chunk(3, dim=-1)</text>
+  <line x1="500" y1="220" x2="500" y2="236" class="af"/>
+
+  <rect x="300" y="242" width="400" height="50" rx="8" fill="#2e1065" stroke="#d8b4fe" stroke-width="2"/>
+  <text x="500" y="264" text-anchor="middle" class="lbl">Rotary Position Embedding (RoPE)</text>
+  <text x="500" y="282" text-anchor="middle" class="detail">apply_rotary_emb(xq, xk, freqs_cis) — no learned params</text>
+  <line x1="500" y1="292" x2="500" y2="308" class="af"/>
+
+  <rect x="300" y="314" width="400" height="50" rx="8" fill="#052e16" stroke="#86efac" stroke-width="2"/>
+  <text x="500" y="336" text-anchor="middle" class="lbl">Flash Attention 3</text>
+  <text x="500" y="354" text-anchor="middle" class="detail">flash_attn_func · causal=False · p_dropout=0 · 12 heads</text>
+  <line x1="500" y1="364" x2="500" y2="379" class="af"/>
+
+  <circle cx="500" cy="392" r="14" fill="#1e293b" stroke="#93c5fd" stroke-width="2"/>
+  <text x="500" y="398" text-anchor="middle" class="add-lbl">+</text>
+  <line x1="70" y1="392" x2="486" y2="392" class="ask"/>
+  <line x1="500" y1="406" x2="500" y2="420" class="af"/>
+
+  <path d="M 500 413 Q 900 413 900 500" class="ask"/>
+  <text x="912" y="458" text-anchor="middle" class="resid" transform="rotate(90 912 458)">residual 2</text>
+
+  <rect x="300" y="426" width="400" height="42" rx="8" fill="#451a03" stroke="#fbbf24" stroke-width="2"/>
+  <text x="500" y="451" text-anchor="middle" class="lbl">Pre-RMSNorm</text>
+  <line x1="500" y1="468" x2="500" y2="482" class="af"/>
+
+  <rect x="300" y="488" width="400" height="54" rx="8" fill="#4a044e" stroke="#f9a8d4" stroke-width="2"/>
+  <text x="500" y="510" text-anchor="middle" class="lbl">SwiGLU FFN  (3,072)</text>
+  <text x="500" y="528" text-anchor="middle" class="detail">W_gate × SiLU(W_up(x)) → W_down · 3 matrices · no bias</text>
+
+  <circle cx="900" cy="514" r="14" fill="#1e293b" stroke="#93c5fd" stroke-width="2"/>
+  <text x="900" y="520" text-anchor="middle" class="add-lbl">+</text>
+  <line x1="700" y1="514" x2="886" y2="514" class="af"/>
+
+  <line x1="900" y1="528" x2="900" y2="548" class="af"/>
+  <text x="900" y="562" text-anchor="middle" class="signal">x'  (B, S, 768)</text>
+</svg>

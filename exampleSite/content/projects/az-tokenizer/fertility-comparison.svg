@@ -12,9 +12,10 @@
       /* Dark mode */
       @media (prefers-color-scheme: dark) {
         .title { fill: #e6edf3; }
-        .subtitle, .label { fill: #8b949e; }
+        .subtitle { fill: #c9d1d9; }
+        .label { fill: #e6edf3; }
         .value { fill: #e6edf3; }
-        .tick { fill: #6e7681; }
+        .tick { fill: #8b949e; }
         .annot { fill: #d2a8ff; }
       }
 
@@ -71,7 +72,7 @@
   <text x="500" y="445" text-anchor="middle" class="tick">1.0</text>
   <text x="720" y="445" text-anchor="middle" class="tick">2.0</text>
   <text x="920" y="445" text-anchor="middle" class="tick">3.0</text>
-  <text x="600" y="475" text-anchor="middle" class="subtitle">Mean fertility (subword pieces per word)</text>
+  <text x="600" y="490" text-anchor="middle" class="subtitle">Mean fertility (subword pieces per word)</text>
 
   <!-- Bar 1: wp_2_uncased (selected) - 1.727 -->
   <!-- Width: 1.727 * 213.33 = 368 px -->
